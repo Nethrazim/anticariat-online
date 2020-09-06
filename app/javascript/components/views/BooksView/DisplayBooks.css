@@ -1,0 +1,52 @@
+.search_category_box
+{
+    float:right;
+    padding-top: 50px;
+    min-width: 990px;
+    font-size: 20px;   
+}
+
+.navigation_bar
+{
+    width: 1300px;
+}
+
+.per_page select
+{
+    width: 100px;
+}
+
+.per_page span
+{
+    padding-right: 10px;
+}
+
+.toolbar 
+{
+    list-style: none;
+    float: right;
+}
+
+.toolbar li 
+{
+    float: left;
+}
+
+.li_per_page
+{
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    padding-top: 3px;
+    padding-right: 50px;
+}
+
+.book_list
+{
+    float:right;
+    padding-top: 50px;
+    min-width: 990px;
+}
+
+.book_list table
+{
+    float: right;
+}

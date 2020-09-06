@@ -1,0 +1,91 @@
+.book_data_box .book_img
+{
+    width:200px;
+}
+
+.book_data_box .book_details
+{
+    list-style: none;
+    padding: 0px;
+}
+
+.book_data_box .book_details .block
+{
+    display: block;
+}
+
+
+.book_data_box .book_details .title
+{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.book_data_box .book_details .author
+{
+    font-size: 14px;
+    font-style: italic;
+}
+
+.book_data_box .left_book_details .price 
+{
+    font-size: 16px;
+    font-weight: bold;
+    color: red
+}
+
+.book_data_box .left_book_details .stock
+{
+    color: #05ab09;
+}
+
+.book_data_box .left_book_details .adauga_in_cos
+{
+    border:0;
+    height: 40px;
+    background-color: red;
+    color: white;
+    outline:none;
+    width: 150px;
+}
+
+.book_data_box .left_book_details .adauga_in_cos:hover
+{
+    font-weight: bold;
+}
+
+.book_data_box .left_book_details .adauga_la_favorite_box
+{    
+    padding-top: 15px;
+}
+
+.book_data_box .left_book_details .adauga_la_favorite
+{
+    border-style: solid;
+    height: 40px;
+    background-color: white;
+    outline: none;
+}
+
+.book_data_box .left_book_details .adauga_la_favorite:hover
+{
+    font-weight: bold;
+}
+
+.book_data_box .left_book_details .deliver_time
+{
+    padding-top: 10px;
+}
+
+
+
+.book_data_box .left_book_details .adauga_in_cos_item_list
+{
+    list-style:none;
+    padding: 0px;
+}
+
+.book_data_box .left_book_details .alert
+{
+    color: green;
+}

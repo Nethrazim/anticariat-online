@@ -1,0 +1,16 @@
+.top_nav_box
+{
+    padding-top: 15px;
+}
+
+
+.top_nav_box ul 
+{
+    list-style-type: none;
+}
+
+.top_nav_box ul li
+{
+    float: left;
+    padding-left: 15px;
+}

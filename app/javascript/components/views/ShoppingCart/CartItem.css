@@ -1,0 +1,19 @@
+.cart_item {
+    cursor: pointer;
+}
+
+.cart_item:hover
+{
+    background-color:  rgb(235, 229, 229);
+}
+
+.cart_item .item
+{
+    display:inline-block;
+    padding-left: 50px;
+}
+
+.cart_item .price
+{
+    color: red;
+}

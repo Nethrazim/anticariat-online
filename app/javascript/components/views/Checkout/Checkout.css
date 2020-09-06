@@ -1,0 +1,210 @@
+.checkout_page
+{
+    min-height: 1300px;
+    max-width:1200px;
+}
+.checkout_page .title
+{
+    font-size:20px;
+}
+
+.checkout_page .title_wrapper
+{
+    padding-top: 20px;
+}
+
+.checkout_page .finalizare_btn
+{
+    position:relative;
+    top: 50px;
+    height: 40px;
+    background-color: red;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bold;
+    color: white;
+    border: 0;
+    float: right;
+}
+
+.checkout_page .summary_wrapper
+{
+    width:1150px;
+}
+
+.checkout_page .summary_wrapper .total
+{
+    padding-right:20px;
+    float:right;
+}
+
+.checkout_page .summary_wrapper .total .total_span
+{
+    padding-right: 50px;
+}
+
+.checkout_page .summary_wrapper .total .total_price
+{
+    padding-right: 50px;
+}
+
+.checkout_page .items_wrapper
+{
+    padding-top: 50px;
+    overflow-y: scroll;
+    height: 300px;
+    width:1100px;
+    top: 50px;
+    border-left:1px dotted  black;
+    border-right: 1px dotted black;
+    border-top: 1px dotted black;
+}
+
+.checkout_page .items_wrapper .items_table
+{
+    float:right;
+    width: 1080px;
+}
+
+.checkout_page .items_wrapper .items_table .book_details
+{
+    list-style:none;
+    padding-left: 0px;
+    float: right;
+}
+
+.checkout_page .items_wrapper .items_table .title_span
+{
+    font-weight: bold;
+}
+
+.checkout_page .items_wrapper .headers
+{
+    height: 60px;
+    /*background-color: rgb(245, 253, 205);*/
+}
+
+.checkout_page .head
+{
+    width: 200px;
+}
+
+.checkout_page .head_product
+{
+    width: 400px;    
+}
+.checkout_page .header_delete
+{
+    width: 250px;
+}
+
+.checkout_page .col_header
+{
+   float: right; 
+}
+
+.checkout_page .right
+{
+    float: right;
+}
+
+.checkout_page .deleteBtn
+{
+    cursor: pointer;
+}
+
+.checkout_page .contact_person_wrapper
+{
+    border:1px dotted  black;
+    padding-top: 50px;
+}
+
+.checkout_page .contact_person_wrapper
+{
+    width: 1100px;
+}
+
+.checkout_page .contact_person_wrapper .personalInfo
+{
+    width: 1050px;
+    background-color: rgb(246, 250, 227);
+    border: 1px solid green;
+}
+
+.checkout_page .contact_person_wrapper .personalInfo:focus
+{
+    outline: none;
+}
+
+.checkout_page .contact_person_wrapper .personalInfo:hover
+{
+    background-color:rgb(205, 233, 164);
+}
+
+.checkout_page .contact_person_wrapper .contact_form
+{
+    list-style:none;
+    padding-left: 10px;
+    height: 310px;
+}
+
+.checkout_page .contact_person_wrapper .contact_form li
+{
+    padding-bottom: 20px;
+}
+
+.checkout_page .red {
+    color: red;
+}
+
+.checkout_page .date_livrare_wrapper
+{
+    width: 1100px;
+    border:1px dotted  black;
+    padding-top: 50px;
+}
+
+.checkout_page .date_livrare_wrapper .factInput
+{
+    width: 1050px;
+    background-color: rgb(246, 250, 227);
+    border: 1px solid green;
+}
+
+.checkout_page .date_livrare_wrapper .factInput:focus {
+    outline: none;
+}
+
+.checkout_page .date_livrare_wrapper .factInput:hover
+{
+    background-color: rgb(205, 233, 164);
+}
+.checkout_page .date_livrare_wrapper .date_livrare_form
+{
+    list-style:none;
+    padding-left: 10px;
+    height: 300px;
+}
+
+.checkout_page .date_livrare_wrapper .date_livrare_form li
+{
+    padding-bottom: 20px;
+}
+
+.checkout_page .heading
+{
+    padding-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #a09898;
+}
+
+.empty_cart_wrapper
+{
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    padding: 0;
+    padding-top: 200px;
+    color: orangered;
+}

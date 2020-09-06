@@ -1,0 +1,35 @@
+.footer_links_box
+{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.footer_links_box ul
+{
+    list-style: none;
+    padding-left:10px;
+}
+
+.footer_links_box ul .list_title
+{
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.account_wish_cart
+{
+    padding-top: 20px;
+    float: right;
+}
+
+.footer_links_box .account_wish_cart li
+{
+    float: left;
+    padding-right: 10px;
+}
+
+.account_wish_cart_box
+{
+    min-width: 500px;
+}

@@ -1,0 +1,32 @@
+.contact_page
+{
+    color: #7d7b7a;
+}
+.contact_page .title_wrapper
+{
+    padding-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.contact_page .title
+{
+    padding-left: 0px;
+}
+
+.contact_page .info_comenzi_wrapper .info_comenzi_header
+{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.contact_page .info_comenzi_wrapper .info_comenzi_span
+{
+    font-size: 14px;
+}
+
+
+.contact_page .ridicari_din_magazin_wrapper .ridicari_din_magazin_title_wrapper
+{
+    padding-top: 20px;
+    font-weight: bold;
+}

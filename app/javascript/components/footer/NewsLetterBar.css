@@ -1,0 +1,71 @@
+.news_letter_box
+{
+    position: relative;
+    top: 5px;
+    min-width: 1150px;
+    line-height: 40px;
+    background-color: #3d3e3e;
+    padding-bottom: 10px;
+}
+
+.news_letter_box .subscribe_box
+{
+    padding-top: 5px;
+    color: white;
+}
+
+.news_letter_box .subscribe_box span 
+{
+    padding-left: 10px;
+}
+
+.terms_and_conditions_box
+{
+    padding-top: 10px;
+}
+.terms_and_conditions_box label
+{
+    font-size: 14px;
+    line-height: 14px;
+    color: white;
+    width: 300px;
+    float: right;
+}
+
+.terms_and_conditions_box input
+{
+    vertical-align: top;
+}
+
+.news_letter_email_box
+{
+    padding-top: 10px;
+}
+
+.news_letter_email_box input
+{
+    float: left;
+    width: 250px;
+}
+
+.news_letter_email_box svg 
+{
+    float: left;
+    display: block;
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    background-color: red;
+}
+
+.cb_terms_and_conditions
+{
+    float:left;
+}
+
+.popper
+{
+    background-color:yellow;
+    font-weight: bold;
+    color: red;
+}

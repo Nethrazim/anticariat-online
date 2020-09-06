@@ -1,0 +1,143 @@
+.buy_adv_wrapper .row
+{
+    width: 100%;
+    padding-bottom: 25px;
+}
+
+.buy_adv_wrapper .title
+{
+    font-size: 22px;
+}
+
+.buy_adv_wrapper .emph_title
+{
+    padding-left: 10px;
+    font-size: 20px;
+    color: red;
+}
+
+.buy_adv_wrapper .call_us
+{
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: bold; 
+}
+
+.buy_adv_wrapper .call_us_phone
+{
+    padding-left: 15px;
+    font-size: 20px;
+    color: red
+}
+
+.buy_adv_wrapper .contact_form
+{
+    float:right;
+}
+
+.buy_adv_wrapper .contact_form input[type="text"], textarea
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.buy_adv_wrapper .contact_form div
+{
+    padding-top: 10px;
+}
+.buy_adv_wrapper .contact_form input[type="text"]
+{
+    width: 400px;
+}
+
+.buy_adv_wrapper .contact_form textarea
+{
+    width: 400px;
+    height: 100px;
+}
+
+.buy_adv_wrapper .button_wrapper 
+{
+    width: 400px;
+}
+
+.buy_adv_wrapper .terms_and_conditions
+{
+    width: 400px;
+}
+
+.buy_adv_wrapper .terms_and_conditions .have_read
+{
+    padding-left: 10px;
+}
+.buy_adv_wrapper .terms_and_conditions .star
+{
+    color: red;
+}
+
+.buy_adv_wrapper .button_wrapper button
+{
+    border: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: red;
+    color: white;
+}
+
+.buy_adv_wrapper .button_wrapper .clip_loader
+{
+    padding-top: 50px;
+    float: right;
+}
+
+.buy_adv_wrapper .book_shelves_wrapper
+{
+    width: 700px;
+    float: right;
+}
+
+.buy_adv_wrapper .inline_wrapper
+{
+    padding-left:20px;
+    float: right;
+}
+
+.buy_adv_wrapper .p_title
+{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+.buy_adv_wrapper .shop_img
+{
+    padding-left: 20px;
+}
+
+.buy_adv_wrapper .magazin_p_wrapper
+{
+    position:relative;
+    top: 30px;
+    left: 20px;
+    display: inline-block;
+}
+
+.buy_adv_wrapper .par
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #7d7b7a;
+}
+
+.buy_adv_wrapper .par .red
+{
+    color: red;
+    font-weight: bold;
+}
+
+.server_status 
+{
+    color: green;
+}

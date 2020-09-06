@@ -1,0 +1,22 @@
+.contact_btn_box ul
+{
+    list-style: none;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.contact_btn_box ul span
+{
+    font-size: 12px;
+}
+
+.contact_btn_box a
+{
+    text-decoration: none;
+    color: black;
+}
+
+.contact_btn_box a:hover
+{
+    text-decoration: underline;
+}

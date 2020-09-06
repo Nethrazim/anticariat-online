@@ -1,0 +1,11 @@
+.cart_btn_box ul
+{
+    list-style: none;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.cart_btn_box ul span
+{
+    font-size: 12px;
+}

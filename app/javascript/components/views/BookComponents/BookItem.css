@@ -1,0 +1,47 @@
+.book_item
+{
+    cursor: pointer;
+    border: red solid 1px;
+    max-width: 132px;
+    min-height: 300px;
+    margin: 15px;
+}
+
+.book_item ul
+{
+    list-style: none;
+    padding:0;
+}
+
+.book_item img
+{
+    width: 130px;
+
+}
+
+                   
+.book_item .title
+{
+    font-size: 12px;
+    color: chocolate;
+}
+
+
+.book_item .author
+{
+    font-size: 10px;
+}
+
+.book_item .price
+{
+    padding-top: 10px;
+    font-size: 14px;
+    color: red;
+}
+
+.book_item .currency
+{
+    padding-top: 10px;
+    font-size: 14px;
+    color: RED;
+}

@@ -1,0 +1,28 @@
+
+.account_btn_box ul
+{
+    list-style: none;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.account_btn_box ul span
+{
+    font-size: 12px;
+}
+
+.account_btn_box a
+{
+    color: black;
+}
+
+.account_btn_box .logged_in_username
+{
+    color: brown;
+}
+
+.account_btn_box .welcome_username
+{
+    font-size: 14px;
+    color: black;
+}

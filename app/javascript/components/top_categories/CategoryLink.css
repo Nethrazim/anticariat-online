@@ -1,0 +1,14 @@
+.category_link
+{
+    padding-right: 10px;
+    font-size: 14px;
+}
+
+.category_link a , a:visited
+{
+    cursor:pointer;
+    text-transform: uppercase;
+    color: #343335;
+
+    transition: all 0.2s ease-in 0s;
+}

@@ -1,0 +1,33 @@
+.shopping_cart_box {
+    background-color:white;
+    border: solid 1px;
+    width: 800px;
+    height: 400px;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    
+    bottom: 0;
+    margin: auto;
+    overflow-y: scroll;
+}
+
+.shopping_cart_box .cart_items
+{
+    list-style: none;
+    padding-top: 20px;
+}
+
+.shopping_cart_box .viewDetails
+{
+    text-decoration:none;
+    position:sticky;
+    height: 40px;
+    top:0px;  
+    right: 0px;;
+    left:700px;
+    border:0;
+    background-color:red;
+    color:white;
+}

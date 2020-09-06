@@ -1,0 +1,32 @@
+.home_wrapper
+{
+    width: 1200px;
+    padding-bottom: 20px;
+}
+
+.new_books
+{
+    list-style: none;
+}
+
+.new_books li
+{
+    float:left;
+}
+
+.noutati_title svg
+{
+    position:relative;
+    left: 5px;
+}
+
+.noutati_title svg:hover
+{
+    cursor:pointer;
+    color:red;
+}
+
+.new_books_wrapper
+{
+    width: 1100px;
+}

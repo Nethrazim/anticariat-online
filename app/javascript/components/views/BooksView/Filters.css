@@ -1,0 +1,67 @@
+
+.filter
+{
+    max-width: 300px;
+    float:left;
+}
+
+.filter .filters
+{
+    padding-top: 50px;
+    padding-left: 0px;
+    list-style: none;
+}
+
+.title_wrappper hr
+{
+    margin-top:0px;
+}
+
+.filters li
+{
+    padding-bottom: 15px;
+}
+.filters .title
+{
+    display:block;
+    width: 200px;   
+    padding-top: 0px;
+}
+
+.search_in_category_icon
+{
+    background-color: red;   
+    border:0px;
+    margin:0px;
+    line-height: 1.7em;
+    color: white;
+}
+
+.remove_filter
+{
+    border: 0px;
+    margin: 0px;
+    line-height: 1.7em;
+}
+
+.filter_price .price
+{
+    width: 38px;
+    height: 28px;
+    text-align: center;
+    font-size: 11px;
+}
+
+.filter_years .years
+{
+    width: 38px;
+    height: 28px;
+    text-align: center;
+    font-size: 11px;
+}
+
+.filter_box button
+{
+    position: relative;
+    top: 2px;
+}

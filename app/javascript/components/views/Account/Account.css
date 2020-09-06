@@ -1,0 +1,39 @@
+.create_account_box
+{
+    padding-top: 50px;
+}
+.create_account_box tr td
+{
+    padding-bottom: 15px;
+}
+
+.create_account_box button 
+{
+    width: 300px;
+    line-height:2.3em;
+    border:0px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+}
+
+.create_account_box span
+{
+    padding-bottom: 30px;
+}
+
+.create_account_box input
+{
+    width: 300px;
+    line-height: 2em;
+}
+
+.create_account_box .validation_message
+{
+    color: red;
+}
+
+.create_account_server_errors
+{
+    list-style:none;
+}

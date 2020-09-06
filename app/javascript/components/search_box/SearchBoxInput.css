@@ -1,0 +1,17 @@
+.search_box_input
+{
+    padding-top: 10px;
+}
+
+.search_box_input input[type=search]
+{
+    width:600px;
+    height:40px;
+}
+
+.search_box_btn
+{
+    cursor: pointer;
+    background-color:red;
+    padding: 9.5px;
+}
