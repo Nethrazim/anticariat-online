@@ -87,14 +87,15 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.10-x64-mingw32)
       mini_portile2 (~> 2.4.0)
+    passenger (6.0.6)
+      rack
+      rake (>= 0.8.1)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
     pry-byebug (3.9.0)
       byebug (~> 11.0)
       pry (~> 0.13.0)
-    puma (4.3.6)
-      nio4r (~> 2.0)
     rack (2.2.3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
@@ -164,9 +165,9 @@ DEPENDENCIES
   byebug
   jwt
   mysql2 (>= 0.4.4)
+  passenger
   pry
   pry-byebug
-  puma (~> 4.1)
   rack-cors
   rails (~> 6.0.3, >= 6.0.3.2)
   tzinfo-data
