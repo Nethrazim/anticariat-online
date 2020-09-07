@@ -107,7 +107,7 @@ class Checkout extends React.Component
 
     fetchCountries = () => {
         var _this = this;
-        fetch('http://localhost:3000/book_filters/countries_regions')
+        fetch('/book_filters/countries_regions')
             .then(response => response.json())
             .then(function(data) {
                 var newState = Object.assign({}, _this.state);

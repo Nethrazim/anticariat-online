@@ -72,7 +72,7 @@ class BuyAdv extends React.Component
 
         var _this = this;
         this.setState(Object.assign({}, this.state, {isLoading: true}));
-        fetch('http://localhost:3000/messages',{
+        fetch('/messages',{
             method: 'POST',
             body: JSON.stringify(message),
             cache: 'no-cache',

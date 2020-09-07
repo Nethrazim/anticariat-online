@@ -76,7 +76,7 @@ class DisplayBooks extends React.Component
         };
 
         var _this = this;
-        fetch('http://localhost:3000/search/category?' + new URLSearchParams(message))
+        fetch('/search/category?' + new URLSearchParams(message))
             .then(response => response.json())
             .then(function(data){
                 var newState = Object.assign({}, _this.state);

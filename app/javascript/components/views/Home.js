@@ -24,7 +24,7 @@ class Home extends React.Component
         };
 
         var _this = this;
-        fetch('http://localhost:3000/search/new_books?' + new URLSearchParams(message))
+        fetch('/search/new_books?' + new URLSearchParams(message))
             .then(response => response.json())
             .then(function(data) {
                 var newState = Object.assign({}, _this.state);

@@ -43,7 +43,7 @@ class Book extends React.Component
     {
         var _this = this;
         var id = this.props.match.params.id;
-        fetch(host_url + "books/"+id)
+        fetch("/books/"+id)
             .then(response => response.json())
             .then(function(data){
                var newState = Object.assign({}, _this.state);

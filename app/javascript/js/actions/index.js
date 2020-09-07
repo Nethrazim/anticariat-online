@@ -25,7 +25,7 @@ export function createAccount(payload)
             }
         };
 
-        return fetch("http://localhost:3000/users", request_options)
+        return fetch("/users", request_options)
         .then(response => {
             return  response.json();
         })
@@ -51,7 +51,7 @@ export function checkIsLoggedIn(token)
 {
     return function(dispatch)
     {
-        return fetch(host_url + "user_is_authed", {
+        return fetch("/user_is_authed", {
             headers: {
                 'Authorization': 'Bearer' + token
             }
@@ -115,7 +115,7 @@ export function login(payload)
             }
         }
 
-        return fetch("http://localhost:3000/login", request_options)
+        return fetch("/login", request_options)
         .then(response => {
             return  response.json();
         })

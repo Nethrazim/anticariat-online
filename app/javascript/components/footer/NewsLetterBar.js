@@ -54,7 +54,7 @@ class NewsLetterBar extends React.Component
         }
 
         var _this = this;
-        fetch(host_url + "subscription/new", request_options)
+        fetch("/subscription/new", request_options)
             .then(response => response.json())
             .then(function(data){
                 var newState = _this.state;
