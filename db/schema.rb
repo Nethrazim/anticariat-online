@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_09_04_074356) do
 
   create_table "book_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name", limit: 50, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["name"], name: "index_book_categories_on_name", unique: true
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_09_04_074356) do
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name", limit: 50, null: false
     t.string "phone", null: false
     t.string "message", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 2020_09_04_074356) do
   end
 
   create_table "subscriptions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "email", null: false
+    t.string "email", limit: 64, null: false
     t.boolean "enabled", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -109,11 +109,11 @@ ActiveRecord::Schema.define(version: 2020_09_04_074356) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "username", null: false
+    t.string "username", limit: 50, null: false
     t.string "first_name"
     t.string "last_name"
     t.string "phone"
-    t.string "email", null: false
+    t.string "email", limit: 64, null: false
     t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
