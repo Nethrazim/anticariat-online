@@ -38,7 +38,6 @@ module AnticariatOnline
           )
       end
     end
-    config.hosts << "caravanacartilor.com"
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
