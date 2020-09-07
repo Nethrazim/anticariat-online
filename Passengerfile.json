@@ -1,0 +1,5 @@
+{
+    "environment":"development",
+    "port":80,
+    "daemonize":true
+}
