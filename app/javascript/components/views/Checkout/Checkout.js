@@ -89,7 +89,7 @@ class Checkout extends React.Component
         }
         console.log(JSON.stringify(order));
         const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
-        fetch('http://localhost:3000/orders', {
+        fetch('/orders', {
             method: 'POST', 
             body: JSON.stringify(order),
             cache: 'no-cache', 
