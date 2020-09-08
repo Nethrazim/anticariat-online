@@ -7,7 +7,7 @@ class TopHorizontalLine extends React.Component
     render()
     {
         return(
-            <hr/>
+            <hr className="top_horizontal_line"/>
         );
     }
 }

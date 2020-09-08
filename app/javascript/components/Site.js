@@ -44,6 +44,8 @@ class Site extends React.Component
 
     render() {
         return (    
+                <div className="main_container">
+                <div className="center_container">
                 <Router history={history}>
                 <main>
                 <div className="top_layout_box">
@@ -51,7 +53,8 @@ class Site extends React.Component
                         <TopNav/>
                         <TopSearchBox/>
                     </div> 
-                    <div className="container-fluid">
+                    
+                    <div className="container-fluid category_link_wrapper">
                         <div className="row d-flex justify-content-center">
                             <CategoryLink link_text="LITERATURA" link="literatura"/>
                             <CategoryLink link_text="BIBLIOFILIE" link="bibliofilie"/>
@@ -67,15 +70,16 @@ class Site extends React.Component
                         </div>
                     </div>
                 </div>
-                <TopHorizontalLine/>
                 <div className="container-fluid d-flex justify-content-center">
                     <ViewPort/>
                 </div>
-                <div className="container-fluid d-flex justify-content-center">
+                <div className="container-fluid d-flex footer_container">
                     <Footer/>
                 </div>
                 </main>
                 </Router>
+                </div>
+                </div>
         );
 
     }

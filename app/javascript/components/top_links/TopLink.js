@@ -17,7 +17,7 @@ class TopLink extends React.Component
         return(
             <div className="top_link_box">
                 <Link to={"/" + this.link}>
-                    <span>{this.link_text}</span>
+                    <span className="link_color">{this.link_text}</span>
                 </Link>
             </div>
         );

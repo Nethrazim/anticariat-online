@@ -1,4 +1,17 @@
 .logo img
 {
-    padding-top:8px;
+    width: 201px;
+    height: 120px;
+    position: relative;
+    top: -30px;
+    left: -80px;
+}
+
+.logo span
+{
+    position: relative;
+    left: -55px;
+    top: -30px;
+    font-size: 22px;
+    color: brown;
 }

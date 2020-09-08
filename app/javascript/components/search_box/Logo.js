@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import './Logo.css';
-import logo from '../../components/assets/images/anticariat_logo.jpg';
+import logo from '../../components/assets/images/carriage-logo.png';
 
 class Logo extends React.Component
 {
@@ -10,9 +10,8 @@ class Logo extends React.Component
     {
         return(
             <div className="logo">
-                <Link to="/">
-                    <img src={logo} alt="anticariat"/>
-                </Link>
+               <img src={logo} alt="caravana cartilor"/><br/>
+               <span>Caravana Cartilor</span>
             </div>
         );
     }
