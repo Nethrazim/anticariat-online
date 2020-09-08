@@ -12,3 +12,9 @@
 
     transition: all 0.2s ease-in 0s;
 }
+
+.category_link .link_color
+{
+    color: white;
+    font-weight: bold;
+}

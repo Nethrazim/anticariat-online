@@ -49,7 +49,7 @@ class CartBtnBox extends React.Component
                     </li>
                     <li>
                         <Link to="/#" onClick={this.openShoppingCart}>                            
-                            <span>Cart</span>
+                            <span>Cos</span>
                         </Link>
                     </li>
                 </ul>

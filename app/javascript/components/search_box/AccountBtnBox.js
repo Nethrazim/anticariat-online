@@ -33,7 +33,7 @@ class AccountBtnBox extends React.Component
                         <div>
                             <span className="logged_in_username">{this.props.username}</span>/
                             <Link to="/edit_account">
-                                <span>Edit Account</span>
+                                <span>Editeaza Cont</span>
                             </Link>
                         </div>
                         :
@@ -42,7 +42,7 @@ class AccountBtnBox extends React.Component
                                 <span>Creeaza cont</span>
                             </Link>/
                             <Link to="/login">
-                                <span>Login</span>
+                                <span>Autentifica-te</span>
                             </Link>
                         </div>
                     }

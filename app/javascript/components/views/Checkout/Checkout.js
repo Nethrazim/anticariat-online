@@ -6,7 +6,7 @@ import history from '../../../js/history/history';
 
 
 import {connect} from 'react-redux';
-import {deleteFromShoppingCart} from '../../../js/actions/index';
+import {deleteFromShoppingCart, deleteAllFromShoppingCart} from '../../../js/actions/index';
 
 import SimpleReactValidator from 'simple-react-validator';
 import './Checkout.css'
@@ -22,7 +22,10 @@ function mapDispatchToProps(dispatch)
 {
     return {
         deleteFromCart: (payload) => {
-            dispatch(deleteFromShoppingCart(payload))
+            dispatch(deleteFromShoppingCart(payload));
+        },
+        deleteAllFromShoppingCart: () => {
+            dispatch(deleteAllFromShoppingCart());
         }
     };
 }
@@ -43,7 +46,8 @@ class Checkout extends React.Component
             city:''
         },
         countries_regions:[],
-        selected_country:{regions:[]}
+        selected_country:{regions:[]},
+        registered_order: null
     }
 
     validator = new SimpleReactValidator();
@@ -53,14 +57,14 @@ class Checkout extends React.Component
     }
     
     createOrder = (event) => {
-        if(!this.validator.allValid() && this.state.deliveryInfo.country !== null && this.state.deliveryInfo.region !== null)
+        if(this.validator.allValid() && this.state.deliveryInfo.country !== null && this.state.deliveryInfo.region !== null)
         {
-            this.validator.showMessages();
-            this.forceUpdate();
+            this.sendOrder();
         }
         else
         {
-            this.sendOrder();
+            this.validator.showMessages();
+            this.forceUpdate();
         }
     }
 
@@ -87,7 +91,7 @@ class Checkout extends React.Component
                 order_details: order_details
             }
         }
-        console.log(JSON.stringify(order));
+        var _this = this;
         const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
         fetch('/orders', {
             method: 'POST', 
@@ -100,9 +104,10 @@ class Checkout extends React.Component
         })
         .then(response => response.json())
         .then(function(data) {
-            alert(data);
+            _this.setState(Object.assign({}, _this.state, {registered_order: data}))
+            _this.props.deleteAllFromShoppingCart();
+            console.log(data);
         })
-        console.log(order);
     }
 
     fetchCountries = () => {
@@ -150,7 +155,14 @@ class Checkout extends React.Component
             var newState = Object.assign({}, this.state);
             newState.selected_country = selected_country;
             newState.deliveryInfo.country = selected_country.id;
-            newState.deliveryInfo.region = selected_country.regions[0].id;
+            if(selected_country.regions.length > 0)
+            {
+                newState.deliveryInfo.region = selected_country.regions[0].id;
+            }
+            else {
+                newState.deliveryInfo.region = null;
+            }
+            
             this.setState(newState);
         }
     }
@@ -172,11 +184,135 @@ class Checkout extends React.Component
     render()
     {
         var isCartEmpty = this.props.items.length === 0 ? true: false;
+        var isOrderRegistered = this.state.registered_order === null ? false : true
 
         var total = 0;
         this.props.items.forEach((item, index) => total += item.price);
         return(
-        isCartEmpty === false ? 
+        isCartEmpty === false || isOrderRegistered === true? 
+        isOrderRegistered === true ? 
+        <div className="container checkout_page">
+            <div className="row">
+                <div className="container d-flex justify-content-center">
+                    <ul className="order_items_list">
+                        <li>
+                            <div className="order_id_wrapper">
+                                <span>Comanda cu  numarul: </span><span>{this.state.registered_order.id}</span><span className="crimson"> a fost inregistrata.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="book_list_wrapper">
+                                <p className="book_list_p">Book List: </p>
+                                <table className="book_summary_table">
+                                    <thead>
+                                        <tr>
+                                            <td className="summ_header">Autor</td>
+                                            <td className="summ_header">Titlu</td>
+                                            <td className="summ_header">ISBN</td>
+                                            <td className="summ_header">Price</td>
+                                            <td className="summ_header">TOTAL: <span className="order_total_price">{this.state.registered_order.total_price} LEI</span></td>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {this.state.registered_order.books.map((item, i) => {
+                                            return <tr key={i}>
+                                                <td className="summ_header">
+                                                    <span className="summ_header">{item.author}</span>
+                                                </td>
+                                                <td  className="summ_header">
+                                                    <span className="right">{item.title}</span>
+                                                </td>
+                                                <td  className="summ_header">
+                                                    <span  className="right">{item.isbn}</span>
+                                                </td>
+                                                <td  className="summ_header">
+                                                    <span className="right">{item.price}</span>
+                                                </td>
+                                                <td  className="summ_header">
+                                                </td>
+                                            </tr>
+                                        })}
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="delivery_address_wrapper">
+                                <p className="book_list_p">Adresa de livrare</p>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <span>{this.state.registered_order.first_name + " " + this.state.registered_order.last_name}</span>
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Email:</span>
+                                            </td>
+                                            <td>
+                                                <span>{this.state.registered_order.email}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Telefon:</span>
+                                            </td>
+                                            <td>
+                                                <span>{this.state.registered_order.phone}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Tara:</span>
+                                            </td>
+                                            <td>
+                                                <span>{this.state.registered_order.order_delivery_address.country.name}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Regiune/Judet:</span>
+                                            </td>
+                                            <td>
+                                                <span>{this.state.registered_order.order_delivery_address.region.name}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Localitate:</span>
+                                            </td>
+                                            <td>
+                                                <span>{this.state.registered_order.order_delivery_address.city}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span>Adresa:</span>
+                                            </td>
+                                            <td>
+                                                <span>{this.state.registered_order.order_delivery_address.address}</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        :
         <div className="checkout_page">
             <div>
                 <Breadcrumbs aria-label="breadcrumb">
@@ -237,7 +373,7 @@ class Checkout extends React.Component
                                     </td>
                                     <td>
                                         <div>
-                                            <svg book_index={i} onClick={this.deleteBook} width="1.5em" height="1.5em" viewBox="0 0 16 16" className="bi bi-x right deleteBtn" fill="red" xmlns="http://www.w3.org/2000/svg">
+                                            <svg book_index={i} onClick={this.deleteBook.bind(this)} width="1.5em" height="1.5em" viewBox="0 0 16 16" className="bi bi-x right deleteBtn" fill="red" xmlns="http://www.w3.org/2000/svg">
                                                 <path fillRule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
                                                 <path fillRule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
                                             </svg>
@@ -304,6 +440,7 @@ class Checkout extends React.Component
                                 })
                             }
                         </select>
+                        <span>{this.validator.message('region', this.state.deliveryInfo.region, 'required', {className:'text-danger'})}</span>
                     </li>
                     <li>
                         
@@ -313,7 +450,7 @@ class Checkout extends React.Component
                     </li>
                 </ul>
                 <div>
-                    <button className="finalizare_btn" onClick={this.createOrder}>Finalizare</button>
+                    <button className="finalizare_btn" onClick={this.createOrder.bind(this)}>Finalizare</button>
                 </div>
             </div>
         </div>

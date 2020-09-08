@@ -44,7 +44,12 @@ class OrdersController < ApplicationController
                 end
                 if order.valid?
                     order.save
-                    render json: "Order created"
+                    order.reload
+                    render json: order.to_json({:include => {
+                        :books => {}, 
+                        :order_delivery_address => {:include => [:country,:region]}
+                        }
+                    })
                 else
                     render json: order.errors.full_messages, status: :not_acceptable
                 end

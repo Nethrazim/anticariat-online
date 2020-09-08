@@ -1,6 +1,6 @@
 class OrderDetail < ApplicationRecord
     belongs_to :order
-    has_one :book
+    belongs_to :book
 
     validates :order, :book_id, presence: true
 end

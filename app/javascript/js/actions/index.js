@@ -1,4 +1,4 @@
-import {DELETE_FROM_CART, IS_LOGGED_IN, IS_NOT_LOGGED_IN, ADD_ARTICLE, CREATE_ACCOUNT, CREATE_ACCOUNT_FAILED, SERVER_ERROR, LOGIN, LOGIN_FAILED, ADD_TO_CART, OPEN_CART, CLOSE_CART} from "../constants/action-types";
+import {DELETE_CART_ALL, DELETE_FROM_CART, IS_LOGGED_IN, IS_NOT_LOGGED_IN, ADD_ARTICLE, CREATE_ACCOUNT, CREATE_ACCOUNT_FAILED, SERVER_ERROR, LOGIN, LOGIN_FAILED, ADD_TO_CART, OPEN_CART, CLOSE_CART} from "../constants/action-types";
 import {host_url} from "../constants/api-urls";
 
 export function addArticle(payload)
@@ -78,6 +78,13 @@ export function checkIsLoggedIn(token)
 export function deleteFromShoppingCart(payload)
 {
     return {type: DELETE_FROM_CART, payload};
+}
+
+export function deleteAllFromShoppingCart()
+{
+
+    var payload = {};
+    return {type: DELETE_CART_ALL, payload};
 }
 
 

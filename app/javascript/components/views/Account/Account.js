@@ -79,28 +79,28 @@ class CreateAccount extends React.Component
                             <tbody>
                                 <tr>
                                     <td>
-                                        <label htmlFor="create_account_username">Username:</label><br/>
+                                        <label htmlFor="create_account_username">Nume utilizator:</label><br/>
                                         <span>{this.validator.message('username', this.state.username, 'required|min:4', { className: 'text-danger'})}</span>
                                         <input type="text" value={this.state.username} onChange={this.handleChangeUsername} name="create_account_username" placeholder="Enter a Username"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label htmlFor="create_account_email">Email:</label><br/>
+                                        <label htmlFor="create_account_email">Adresa email:</label><br/>
                                         <span>{this.validator.message('email', this.state.email, 'required|email', { className: 'text-danger'})}</span>
                                         <input type="text" value={this.state.email} onChange={this.handleChangeEmail}name="create_account_email" placeholder="Enter your E-mail"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label htmlFor="create_account_password">Password:</label><br/>
+                                        <label htmlFor="create_account_password">Parola:</label><br/>
                                         <span>{this.validator.message('password', this.state.password, 'required|min:8', { className: 'text-danger'})}</span>
                                         <input type="password" value={this.state.password} onChange={this.handleChangePassword} name="create_account_password" placeholder="Enter your password"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label htmlFor="create_account_cpassword">Confirm password:</label><br/>
+                                        <label htmlFor="create_account_cpassword">Confirma parola:</label><br/>
                                         <span className="validation_message">{this.validator.message('confirm_password', this.state.confirm_password, `required|min:8|in:${this.state.password}`, {messages: {in: 'Passwords need to match!'}}, { className: 'text-danger'})}</span>
                                         <input type="password" value={this.state.confirm_password} onChange={this.handleChangeCPassword} name="create_account_cpassword" placeholder="Confirm password"/>
                                     </td>

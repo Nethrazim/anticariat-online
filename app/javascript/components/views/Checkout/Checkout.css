@@ -208,3 +208,60 @@
     padding-top: 200px;
     color: orangered;
 }
+
+.book_summary_table thead, .book_summary_table tbody { display: block;}
+
+.book_summary_table tbody {
+    height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.checkout_page .order_items_list
+{
+    list-style: none;
+    padding-left: 0px;
+}
+
+.checkout_page .order_id_wrapper
+{
+    padding: 40px;
+    border-bottom: 1px solid black;
+}
+.checkout_page .book_list_wrapper
+{
+    padding: 40px;
+    border-bottom: 1px solid black;
+}
+
+.checkout_page .delivery_address_wrapper
+{
+    padding: 40px;
+}
+
+.checkout_page .crimson 
+{
+    color: crimson;
+}
+
+.checkout_page .book_list_p
+{
+    display:block;
+    background-color: coral;
+}
+
+.checkout_page .order_total_price
+{
+    color:red;
+}
+
+.checkout_page .summ_header
+{
+    width: 200px;
+}
+
+.checkout_page .right
+{
+    float: left;
+}
+

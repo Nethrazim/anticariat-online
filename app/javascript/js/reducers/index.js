@@ -1,4 +1,4 @@
-import { DELETE_FROM_CART, ADD_ARTICLE, CREATE_ACCOUNT, CREATE_ACCOUNT_FAILED, LOGIN, LOGIN_FAILED, IS_LOGGED_IN, IS_NOT_LOGGED_IN, ADD_TO_CART, OPEN_CART, CLOSE_CART} from '../constants/action-types';
+import { DELETE_CART_ALL, DELETE_FROM_CART, ADD_ARTICLE, CREATE_ACCOUNT, CREATE_ACCOUNT_FAILED, LOGIN, LOGIN_FAILED, IS_LOGGED_IN, IS_NOT_LOGGED_IN, ADD_TO_CART, OPEN_CART, CLOSE_CART} from '../constants/action-types';
 
 const initialState = {
     accessToken: null,
@@ -100,6 +100,11 @@ const initialState = {
       }
       cart_items.splice(idx, 1);
       newState.shoppingCart.items = cart_items;
+    }
+
+    if(action.type === DELETE_CART_ALL)
+    {
+      newState.shoppingCart.items = [];
     }
     return newState;
   };

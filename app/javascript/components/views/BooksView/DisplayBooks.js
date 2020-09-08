@@ -104,7 +104,6 @@ class DisplayBooks extends React.Component
     {
         var newState = Object.assign({}, this.state);
         newState.per_page = event.target.value;
-        console.log(newState);
         this.setState(newState, () => {
             this.fetchBooks()
         });

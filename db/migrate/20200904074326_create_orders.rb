@@ -15,6 +15,8 @@ class CreateOrders < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
+    execute("ALTER TABLE orders AUTO_INCREMENT = 9999")
+
     add_foreign_key :orders, :order_delivery_addresses
     add_foreign_key :orders, :users
   end

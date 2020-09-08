@@ -77,14 +77,14 @@ class LoginBox extends React.Component
                             <tbody>
                                 <tr>
                                     <td>
-                                        <label htmlFor="login_username">Username:</label><br/>
+                                        <label htmlFor="login_username">Nume utilizator:</label><br/>
                                         <span>{this.validator.message('username', this.state.username, 'required|min:4', { className: 'text-danger'})}</span>
                                         <input type="text" value={this.state.username} onChange={this.handleChangeUsername} name="login_username" placeholder="Enter a Username"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <label htmlFor="login_password">Password:</label><br/>
+                                        <label htmlFor="login_password">Parola:</label><br/>
                                         <span>{this.validator.message('password', this.state.password, 'required|min:4', { className: 'text-danger'})}</span>
                                         <input type="password" value={this.state.password} onChange={this.handleChangePassword} name="login_password" placeholder="Enter your Password"/>
                                     </td>
