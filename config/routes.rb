@@ -37,4 +37,6 @@ Rails.application.routes.draw do
   namespace 'subscription' do
     post "/new", to: "subscription#new"
   end
+
+  get "*any", via: :all, to: "errors#not_found"
 end
