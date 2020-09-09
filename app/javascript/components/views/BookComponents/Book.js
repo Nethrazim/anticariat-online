@@ -1,6 +1,8 @@
 import React from 'react';
 import {host_url} from '../../../js/constants/api-urls';
 
+import BookItem from './BookItem';
+
 import {Breadcrumbs} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import Alert from '@material-ui/lab/Alert';
@@ -24,6 +26,7 @@ class Book extends React.Component
     {
         book: {
         },
+        recommended_books: [],
         isAddedToCart: false
     };
 
@@ -48,16 +51,39 @@ class Book extends React.Component
             .then(function(data){
                var newState = Object.assign({}, _this.state);
                newState.book = data;
-               _this.setState(newState);
+               _this.setState(newState, () => {
+                _this.fetchRecommendedBooks(); 
+               });
             })
             .catch((error) => {
                console.log(error);
             });
     }
 
+    fetchRecommendedBooks = () =>
+    {
+        var _this = this;
+        
+        var message = {
+            book_id: this.props.match.params.id,
+        	book_category_id: this.state.book.book_category_id,
+	        author: this.state.book.author,
+	        limit:6
+        };
+
+        fetch("/search/recommendations?" + new URLSearchParams(message))
+            .then(response => response.json())
+            .then(function(data){
+                _this.setState(Object.assign({}, _this.state, {recommended_books: data}));
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+
     componentDidMount()
     {
-        this.fetchBookData();   
+        this.fetchBookData();  
     }
 
     componentDidUpdate(prevProps) {
@@ -155,6 +181,22 @@ class Book extends React.Component
                             </div>
                         </div>
                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div className="row">
+                <div className="recomandari_title_wrapper">
+                    <p>RECOMANDARI</p>
+                </div>          
+                <div className="recomandari_books">
+                    <ul className="recomandari_books_list">
+                        {
+                            this.state.recommended_books.map((item,i) =>
+                            {
+                                return <li className="recomandari_books_list_item" key={i}><BookItem id={item.id} author={item.author} title={item.title} base64={item.base64} price={item.price} year={item.release_year}/></li>
+                            })
+                        }
+                    </ul>
                 </div>
             </div>
         </div>);

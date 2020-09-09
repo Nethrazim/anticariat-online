@@ -69,7 +69,6 @@ class OrdersController < ApplicationController
 
 private 
     def order_params
-        binding.pry
         params.permit(:contact_person, :delivery_address, :order_details)
     end
 end

@@ -106,7 +106,6 @@ class Checkout extends React.Component
         .then(function(data) {
             _this.setState(Object.assign({}, _this.state, {registered_order: data}))
             _this.props.deleteAllFromShoppingCart();
-            console.log(data);
         })
     }
 
