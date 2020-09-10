@@ -151,7 +151,7 @@ class DisplayBooks extends React.Component
     render()
     {
         return(
-            <div>
+            <div className="display_books_page">
                 <Breadcrumbs aria-label="breadcrumb">
                     <Link  to="/">Home</Link>
                     <Link  to={this.props.match.path}>{this.props.category}</Link>
@@ -168,7 +168,7 @@ class DisplayBooks extends React.Component
                             <li className="li_per_page">
                                 <div className="per_page">
                                     <span>Arata:</span>
-                                    <select value={this.state.per_page} onChange={this.handlePerPageChange}>
+                                    <select value={this.state.per_page} onChange={this.handlePerPageChange.bind(this)}>
                                         {
                                             this.state.per_page_options.map((item,i) => <option key={i}>{item}</option>)
                                         }
@@ -176,7 +176,7 @@ class DisplayBooks extends React.Component
                                 </div>
                             </li>
                             <li>
-                                <Pagination count={Math.floor(this.state.searched_books.total / this.state.per_page) + (this.state.searched_books.books.total % this.state.per_page === 0 ? 0 : 1)} page={this.state.page} className="paginationWidget" onChange={this.handlePageChange} showFirstButton showLastButton/>
+                                <Pagination count={Math.floor(this.state.searched_books.total / this.state.per_page) + (this.state.searched_books.books.total % this.state.per_page === 0 ? 0 : 1)} page={this.state.page} className="paginationWidget" onChange={this.handlePageChange.bind(this)} showFirstButton showLastButton/>
                             </li>
                         </ul>
                     </div>

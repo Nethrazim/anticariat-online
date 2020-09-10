@@ -1,3 +1,7 @@
+a, a:hover {
+    text-decoration:none;
+    color: black;
+}
 .main_container
 {
     background-image: url("./assets/images/background.jpg");

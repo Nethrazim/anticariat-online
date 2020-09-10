@@ -79,20 +79,20 @@ class LoginBox extends React.Component
                                     <td>
                                         <label htmlFor="login_username">Nume utilizator:</label><br/>
                                         <span>{this.validator.message('username', this.state.username, 'required|min:4', { className: 'text-danger'})}</span>
-                                        <input type="text" value={this.state.username} onChange={this.handleChangeUsername} name="login_username" placeholder="Enter a Username"/>
+                                        <input type="text" value={this.state.username} onChange={this.handleChangeUsername.bind(this)} name="login_username" placeholder="Enter a Username"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <label htmlFor="login_password">Parola:</label><br/>
                                         <span>{this.validator.message('password', this.state.password, 'required|min:4', { className: 'text-danger'})}</span>
-                                        <input type="password" value={this.state.password} onChange={this.handleChangePassword} name="login_password" placeholder="Enter your Password"/>
+                                        <input type="password" value={this.state.password} onChange={this.handleChangePassword.bind(this)} name="login_password" placeholder="Enter your Password"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <div>
-                                            <button onClick={this.handleLogin}>LOGIN</button>
+                                            <button onClick={this.handleLogin.bind(this)}>LOGIN</button>
                                         </div>
                                         <br/>
                                         <ul className="login_server_errors">

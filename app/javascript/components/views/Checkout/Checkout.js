@@ -390,23 +390,23 @@ class Checkout extends React.Component
                 <ul className="contact_form">
                     <li>
                         <span className="red">*</span>Prenume:<br/>
-                        <input type="text" className="personalInfo" value={this.state.personInfo.firstName} onChange={this.handleFirstNameChange}/>
+                        <input type="text" className="personalInfo" value={this.state.personInfo.firstName} onChange={this.handleFirstNameChange.bind(this)}/>
                         <span>{this.validator.message('firstName', this.state.personInfo.firstName, 'required', {className:'text-danger'})}</span>
                     </li>
                     <li>
                         <span className="red">*</span>Nume:<br/>
-                        <input type="text" className="personalInfo" value={this.state.personInfo.lastName} onChange={this.handleLastNameChange}/>
+                        <input type="text" className="personalInfo" value={this.state.personInfo.lastName} onChange={this.handleLastNameChange.bind(this)}/>
                         <span>{this.validator.message('lastName', this.state.personInfo.lastName, 'required', {className:'text-danger'})}</span>
                     </li>
                     <li>
                         <span className="red">*</span>E-mail:<br/>
-                        <input type="text" className="personalInfo" value={this.state.personInfo.email} onChange={this.handleEmailChange}/>
+                        <input type="text" className="personalInfo" value={this.state.personInfo.email} onChange={this.handleEmailChange.bind(this)}/>
                         <span>{this.validator.message('email', this.state.personInfo.email, 'required|email', {className:'text-danger'})}</span>
                     </li>
                     <li>
                         
                         <span className="red">*</span>Telefon:<br/>
-                        <input type="text" className="personalInfo" value={this.state.personInfo.phone} onChange={this.handlePhoneChange}/>
+                        <input type="text" className="personalInfo" value={this.state.personInfo.phone} onChange={this.handlePhoneChange.bind(this)}/>
                         <span>{this.validator.message('phone', this.state.personInfo.phone, 'required', {className:'text-danger'})}</span>
                     </li>
                 </ul>
@@ -417,12 +417,12 @@ class Checkout extends React.Component
                 <ul className="date_livrare_form">
                     <li>
                         <span className="red">*</span>Adresa:<br/>
-                        <input type="text" className="factInput" value={this.state.deliveryInfo.address} onChange={this.handleAddressChange} placeholder="strada, numar, bloc, scara, apartament"/>
+                        <input type="text" className="factInput" value={this.state.deliveryInfo.address} onChange={this.handleAddressChange.bind(this)} placeholder="strada, numar, bloc, scara, apartament"/>
                         <span>{this.validator.message('address', this.state.deliveryInfo.address, 'required', {className:'text-danger'})}</span>
                     </li>
                     <li>
                         <span className="red">*</span>Tara:<br/>
-                        <select className="factInput" onChange={this.handleCountryChange}>
+                        <select className="factInput" onChange={this.handleCountryChange.bind(this)}>
                             {
                                 this.state.countries_regions.map((item, i) => {
                                     return <option key={i} value={item.id}>{item.name}</option>
@@ -432,7 +432,7 @@ class Checkout extends React.Component
                     </li>
                     <li>
                         <span className="red">*</span>Regiune / Judet:<br/>
-                        <select className="factInput" onChange={this.handleRegionChange}>
+                        <select className="factInput" onChange={this.handleRegionChange.bind(this)}>
                             {
                                 this.state.selected_country.regions.map((item,i) => {
                                     return <option key={i} value={item.id}>{item.name}</option>
@@ -444,7 +444,7 @@ class Checkout extends React.Component
                     <li>
                         
                         <span className="red">*</span>Localitate:<br/>
-                        <input type="text" className="factInput" value={this.state.deliveryInfo.city} onChange={this.handleCityChange}/>
+                        <input type="text" className="factInput" value={this.state.deliveryInfo.city} onChange={this.handleCityChange.bind(this)}/>
                         <span>{this.validator.message('city', this.state.deliveryInfo.city, 'required', {className:'text-danger'})}</span>
                     </li>
                 </ul>

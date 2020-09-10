@@ -4,7 +4,7 @@
     font-size: 14px;
 }
 
-.category_link a , a:visited
+.category_link a , .category_link a:visited
 {
     cursor:pointer;
     text-transform: uppercase;

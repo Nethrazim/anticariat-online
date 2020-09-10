@@ -134,15 +134,15 @@ class BuyAdv extends React.Component
                     <div className="col-md">
                         <form className="contact_form">
                             <div>
-                                <input type="text" name="name" placeholder="Nume*" value={this.state.contact.name} onChange={this.handleNameChange}/>
+                                <input type="text" name="name" placeholder="Nume*" value={this.state.contact.name} onChange={this.handleNameChange.bind(this)}/>
                                 <span>{this.validator.message('name', this.state.contact.name, 'required', { className: 'text-danger'})}</span>
                             </div>
                             <div>
-                                <input type="text" name="phone" placeholder="Telefon*" value={this.state.contact.phone} onChange={this.handlePhoneChange}/>
+                                <input type="text" name="phone" placeholder="Telefon*" value={this.state.contact.phone} onChange={this.handlePhoneChange.bind(this)}/>
                                 <span>{this.validator.message('phone', this.state.contact.phone, 'required', { className: 'text-danger'})}</span>
                             </div>
                             <div>
-                                <textarea name="message" placeholder="Mesaj" value={this.state.contact.message} onChange={this.handleMessageChange}></textarea>
+                                <textarea name="message" placeholder="Mesaj" value={this.state.contact.message} onChange={this.handleMessageChange.bind(this)}></textarea>
                                 <span>{this.validator.message('message', this.state.contact.message, 'required', { className: 'text-danger'})}</span>
                             </div>
                             <div className="terms_and_conditions">
@@ -151,7 +151,7 @@ class BuyAdv extends React.Component
                                 <span className="star">*</span>
                             </div>
                             <div className="button_wrapper">
-                                <button onClick={this.handleSubmitMessage}>Trimite</button>
+                                <button onClick={this.handleSubmitMessage.bind(this)}>Trimite</button>
                                 <ClipLoader className="clip_loader" size={25} loading={this.state.isLoading}/>
                             </div>
                             <div>

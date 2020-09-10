@@ -102,14 +102,14 @@ class Filters extends React.Component
                         </AccordionSummary>
                         <AccordionDetails>
                             <div>
-                                <input type="text" name="search_in_category" value={this.state.search.name} onChange={this.handleSearchNameChange}/>
-                                <button className="search_in_category_icon" onClick={this.handleSearch}>
+                                <input type="text" name="search_in_category" value={this.state.search.name} onChange={this.handleSearchNameChange.bind(this)}/>
+                                <button className="search_in_category_icon" onClick={this.handleSearch.bind(this)}>
                                     <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" className="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fillRule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                                         <path fillRule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
                                     </svg>
                                 </button>
-                                <button className="remove_filter" onClick={() => this.removeFilter('name')}>
+                                <button className="remove_filter" id="btn_filter_name" onClick={this.removeFilter.bind(this, 'name')}>
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fillRule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
                                         <path fillRule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
@@ -128,15 +128,15 @@ class Filters extends React.Component
                             <div className="filter_box">
                                 <input type="text" name="priceFrom" className="price" value={this.state.search.price.from} readOnly/>
                                     &nbsp;-&nbsp;
-                                <input type="text" name="priceTo" className="price" value={this.state.search.price.to} onChange={this.handlePriceToChange}/>
+                                <input type="text" name="priceTo" className="price" value={this.state.search.price.to} onChange={this.handlePriceToChange.bind(this)}/>
                                 <span>&nbsp;lei&nbsp;</span>
-                                <button className="search_in_category_icon" onClick={this.handleSearch}>
+                                <button className="search_in_category_icon" onClick={this.handleSearch.bind(this)}>
                                     <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" className="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fillRule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                                         <path fillRule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
                                     </svg>
                                 </button>
-                                <button className="remove_filter" onClick={() => this.removeFilter('price')}>
+                                <button className="remove_filter" onClick={this.removeFilter.bind(this, 'price')}>
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fillRule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
                                         <path fillRule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>
@@ -153,17 +153,17 @@ class Filters extends React.Component
                         </AccordionSummary>
                         <AccordionDetails>
                             <div className="filter_box"> 
-                                <input type="text" name="yearFrom" className="years" value={this.state.search.years.from} onChange={this.handleYearFromChange}/>
+                                <input type="text" name="yearFrom" className="years" value={this.state.search.years.from} onChange={this.handleYearFromChange.bind(this)}/>
                                     &nbsp;-&nbsp;
-                                <input type="text" name="yearTo" className="years" value={this.state.search.years.to} onChange={this.handleYearToChange}/>
+                                <input type="text" name="yearTo" className="years" value={this.state.search.years.to} onChange={this.handleYearToChange.bind(this)}/>
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                <button className="search_in_category_icon" onClick={this.handleSearch}>
+                                <button className="search_in_category_icon" onClick={this.handleSearch.bind(this)}>
                                     <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" className="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fillRule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                                         <path fillRule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
                                     </svg>
                                 </button>
-                                <button className="remove_filter" onClick={() => this.removeFilter('year')}>
+                                <button className="remove_filter" onClick={this.removeFilter.bind(this,'year')}>
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path fillRule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z"/>
                                         <path fillRule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z"/>

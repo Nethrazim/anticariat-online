@@ -14,6 +14,12 @@
     float:left;
 }
 
+.noutati_title
+{
+    color: crimson;
+    font-weight: bold;
+}
+
 .noutati_title svg
 {
     position:relative;

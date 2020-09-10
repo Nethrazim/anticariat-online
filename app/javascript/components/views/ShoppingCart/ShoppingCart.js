@@ -31,7 +31,7 @@ class ShoppingCart extends React.Component
     {   
         return(
             <div className="shopping_cart_box">
-                <button className="viewDetails" onClick={this.closeCart}>
+                <button className="viewDetails" onClick={this.closeCart.bind(this)}>
                     <span>Vezi detalii cos</span>
                 </button>
                 <ul className="cart_items">

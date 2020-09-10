@@ -102,7 +102,7 @@ class Book extends React.Component
                     <div>
                         <Breadcrumbs aria-label="breadcrumb">
                             <Link to="/">Home</Link>
-                            <Link to="/#" onClick={this.handleGoBack}>Books</Link>
+                            <Link to="/#" onClick={this.handleGoBack.bind(this)}>Books</Link>
                             <Link to={"/books/" + this.state.book.id}>{this.state.book.title}</Link>
                         </Breadcrumbs>
                     </div>
@@ -157,7 +157,7 @@ class Book extends React.Component
                                                     <span className="alert">Adaugat in cos.</span>
                                                 </Alert>
                                             </div> : <div className="d-flex justify-content-center">
-                                                        <button className="adauga_in_cos" onClick={this.addToCart}>Adauga in cos</button>   
+                                                        <button className="adauga_in_cos" onClick={this.addToCart.bind(this)}>Adauga in cos</button>   
                                                     </div>
                                     }
                                 </li>

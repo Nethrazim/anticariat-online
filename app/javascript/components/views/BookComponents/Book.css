@@ -2,6 +2,11 @@
 {
     width:200px;
 }
+.book_data_box a, .book_data a:hover
+{
+    text-decoration: none;
+    color: black;
+}
 
 .book_data_box .book_details
 {
@@ -77,8 +82,6 @@
     padding-top: 10px;
 }
 
-
-
 .book_data_box .left_book_details .adauga_in_cos_item_list
 {
     list-style:none;
@@ -89,20 +92,21 @@
 {
     color: green;
 }
-.recomandari_title_wrapper
+
+.book_data_box .recomandari_title_wrapper
 {
     width:100%;
     color: palevioletred;
     font-weight: bold;
 }
 
-.recomandari_books_list
+.book_data_box .recomandari_books_list
 {
     list-style: none;
     padding-left: 0px;  
 } 
 
-.recomandari_books_list .recomandari_books_list_item
+.book_data_box .recomandari_books_list .recomandari_books_list_item
 {
    float:right; 
    padding-right:15px;

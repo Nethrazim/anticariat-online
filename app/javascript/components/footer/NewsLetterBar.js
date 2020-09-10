@@ -101,7 +101,7 @@ class NewsLetterBar extends React.Component
                 </div>
                 <div className="col-md-4">
                     <div className="terms_and_conditions_box">
-                        <input type="checkbox" className="cb_terms_and_conditions" name="terms_and_conditions" checked={this.state.terms} onChange={this.handleTermsChange}/>
+                        <input type="checkbox" className="cb_terms_and_conditions" name="terms_and_conditions" checked={this.state.terms} onChange={this.handleTermsChange.bind(this)}/>
                         <label htmlFor="terms_and_conditions">
                             Am citit si sunt de acord cu Termenii si conditiile /  Prelucrarea datelor cu caracter personal (GDPR)
                         </label>
@@ -109,8 +109,8 @@ class NewsLetterBar extends React.Component
                 </div>
                 <div className="col-md-4">
                     <div className="news_letter_email_box">
-                        <input type="text" name="news_letter_email" placeholder="Introduceti adresa de E-mail" value={this.state.email} onChange={this.handleEmailChange}/>
-                        <svg onClick={this.submitSubscription}width="1.3em" height="1.3em" viewBox="0 0 16 16" className="bi bi-arrow-right-short" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <input type="text" name="news_letter_email" placeholder="Introduceti adresa de E-mail" value={this.state.email} onChange={this.handleEmailChange.bind(this)}/>
+                        <svg onClick={this.submitSubscription.bind(this)}width="1.3em" height="1.3em" viewBox="0 0 16 16" className="bi bi-arrow-right-short" fill="white" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" d="M8.146 4.646a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.793 8 8.146 5.354a.5.5 0 0 1 0-.708z"/>
                             <path fillRule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5H11a.5.5 0 0 1 0 1H4.5A.5.5 0 0 1 4 8z"/>
                         </svg>

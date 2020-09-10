@@ -16,7 +16,7 @@ class BookItem extends React.Component
         return(
             <Link to={"/books/" + this.props.id}>
                 <div className="book_item">
-                    <ul>
+                    <ul className="book_item_details_list">
                         <li>
                             <img src={this.props.base64} alt=""/>
                         </li>

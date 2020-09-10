@@ -1,3 +1,9 @@
+.display_books_page a, .display_books_page a:hover
+{
+    text-decoration: none;
+    color: black;
+}
+
 .search_category_box
 {
     float:right;

@@ -1,13 +1,13 @@
 .book_item
 {
     cursor: pointer;
-    border: red solid 1px;
+    border: crimson solid 1px;
     max-width: 132px;
-    min-height: 300px;
+    min-height: 350px;
     margin: 15px;
 }
 
-.book_item ul
+.book_item .book_item_details_list
 {
     list-style: none;
     padding:0;
@@ -18,7 +18,6 @@
     width: 130px;
 
 }
-
                    
 .book_item .title
 {
@@ -29,7 +28,7 @@
 
 .book_item .author
 {
-    font-size: 10px;
+    font-size: 16px;
 }
 
 .book_item .price
