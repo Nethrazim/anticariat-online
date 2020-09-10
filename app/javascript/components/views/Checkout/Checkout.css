@@ -103,11 +103,6 @@
    float: right; 
 }
 
-.checkout_page .right
-{
-    float: right;
-}
-
 .checkout_page .deleteBtn
 {
     cursor: pointer;
@@ -262,6 +257,6 @@
 
 .checkout_page .right
 {
-    float: left;
+    float: right;
 }
 
