@@ -1,10 +1,15 @@
 .book_item
 {
     cursor: pointer;
-    border: crimson solid 1px;
     max-width: 132px;
     min-height: 350px;
+
     margin: 15px;
+}
+
+.book_item:hover
+{
+    box-shadow: 0px 0px 2px 2px #999;  
 }
 
 .book_item .book_item_details_list
