@@ -7,10 +7,12 @@ import './DisplayBooks.css';
 
 import BookItem from '../BookComponents/BookItem';
 import Filters from './Filters';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 class DisplayBooks extends React.Component
 {
     state = {
+        isLoading: false,
         searched_books:{
             books: [],
             total: 0
@@ -64,6 +66,8 @@ class DisplayBooks extends React.Component
 
     fetchBooks = () =>
     {
+        this.setState(Object.assign({}, this.state, {isLoading: true}));
+
         var message = {
             category: this.props.category,
             per_page: this.state.per_page,
@@ -82,6 +86,7 @@ class DisplayBooks extends React.Component
                 var newState = Object.assign({}, _this.state);
                 newState.searched_books.books = data.books;
                 newState.searched_books.total = data.total;
+                newState.isLoading = false;
                 _this.setState(newState);
             });
     }
@@ -152,6 +157,13 @@ class DisplayBooks extends React.Component
     {
         return(
             <div className="display_books_page">
+                <div className="row">
+                <div className="col-md-12">
+                    {
+                        this.state.isLoading === true && <LinearProgress/>
+                    }
+                </div>
+                </div>
                 <Breadcrumbs aria-label="breadcrumb">
                     <Link  to="/">Home</Link>
                     <Link  to={this.props.match.path}>{this.props.category}</Link>

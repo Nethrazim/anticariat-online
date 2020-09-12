@@ -11,7 +11,7 @@ import BuyAdv from './BuyAdv';
 import Book from './BookComponents/Book';
 import Contact from './Contact';
 import Checkout from './Checkout/Checkout';
-
+import EditAccount from './Account/EditAccount';
 
 
 
@@ -38,6 +38,7 @@ class ViewPort extends Component
                             <Route path="/limba_straina" component={(routeProps) => <DisplayBooks  {...routeProps} category="limba straina"/>} />
                             <Route path="/altele" component={(routeProps) => <DisplayBooks {...routeProps} category="altele"/>} />
                             <Route path="/account" render={(routeProps) => <Account {...routeProps}/>}/>
+                            <Route path="/edit_account" render={(routeProps) => <EditAccount {...routeProps} />}/>
                             <Route path="/login" render={(routeProps) => <LoginBox {...routeProps}/>}/>
                             <Route path="/checkout" render={(routeProps) => <Checkout {...routeProps}/>}/>
                             <Route path="/" render={(routeProps) => <Home {...routeProps}/>} />
