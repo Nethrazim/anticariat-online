@@ -6,6 +6,7 @@ import BookItem from './BookItem';
 import {Breadcrumbs} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import Alert from '@material-ui/lab/Alert';
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 
 import {connect} from 'react-redux';
@@ -24,6 +25,7 @@ class Book extends React.Component
 {
     state = 
     {
+        isLoading: false,
         book: {
         },
         recommended_books: [],
@@ -74,7 +76,7 @@ class Book extends React.Component
         fetch("/search/recommendations?" + new URLSearchParams(message))
             .then(response => response.json())
             .then(function(data){
-                _this.setState(Object.assign({}, _this.state, {recommended_books: data}));
+                _this.setState(Object.assign({}, _this.state, {isLoading: false, recommended_books: data}));
             })
             .catch((error) => {
                 console.log(error);
@@ -83,12 +85,14 @@ class Book extends React.Component
 
     componentDidMount()
     {
+        this.setState(Object.assign({}, this.state, {isLoading: true}))
         this.fetchBookData();  
     }
 
     componentDidUpdate(prevProps) {
         if(this.props.match.params.id !== prevProps.match.params.id)
         {
+            this.setState(Object.assign({}, this.state, {isLoading: true}))
             this.fetchBookData();   
         }
     }
@@ -97,6 +101,13 @@ class Book extends React.Component
     {
         return(
             <div className="container-fluid book_data_box">
+            <div className="row">
+                <div className="col-md-12">
+                    {
+                        this.state.isLoading === true && <LinearProgress/>
+                    }
+                </div>
+            </div>
             <div className="row">
                 <div className="col-md-4">
                     <div>

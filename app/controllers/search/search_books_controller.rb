@@ -7,9 +7,8 @@ class Search::SearchBooksController < ApplicationController
         book_category_id = params[:book_category_id]
         author = params[:author]
         limit = params[:limit]
+        recommended_books = Book.where("(author = ? or book_category_id = ?) and id <> ?", author, book_category_id, book_id).order("RAND() ").limit(limit)
         
-        recommended_books = Book.where("(author = ? or book_category_id = ?) and id <> ?", author, book_category_id, book_id).limit(limit)
-
         render json: recommended_books, except: [:created_at, :updated_at]
     end
     
