@@ -1,3 +1,7 @@
+.news_letter_bar
+{
+    margin:0;
+}
 .news_letter_box
 {
     position: relative;
@@ -29,7 +33,6 @@
     line-height: 14px;
     color: white;
     width: 300px;
-    float: right;
 }
 
 .terms_and_conditions_box input
@@ -60,7 +63,6 @@
 
 .cb_terms_and_conditions
 {
-    float:left;
 }
 
 .popper

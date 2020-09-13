@@ -89,7 +89,7 @@ class NewsLetterBar extends React.Component
     render()
     {
         return(
-            <div className="container">
+            <div className="container news_letter_bar">
             <div className="row news_letter_box">
                 <div className="col-md-4">
                     <div className="subscribe_box">
