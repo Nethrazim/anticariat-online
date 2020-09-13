@@ -109,7 +109,7 @@ class Book extends React.Component
                 </div>
             </div>
             <div className="row">
-                <div className="col-md-4">
+                <div className="col-xs-4">
                     <div>
                         <Breadcrumbs aria-label="breadcrumb">
                             <Link to="/">Home</Link>
@@ -119,7 +119,7 @@ class Book extends React.Component
                     </div>
                     <img src={this.state.book.base64} className="book_img" alt={this.state.book.title}/>
                 </div>
-                <div className="col-md-4">
+                <div className="col-xs-4">
                     <ul className="book_details">
                         <li>
                             <div>
@@ -148,7 +148,7 @@ class Book extends React.Component
                         </li>
                     </ul>
                 </div>
-                <div className="col-md-4">
+                <div className="col-xs-4">
                     <div className="container left_book_details">
                         <div className="d-flex justify-content-center">
                             <p><span className="price">{this.state.book.price}LEI</span></p>
