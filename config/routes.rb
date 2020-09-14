@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   get "/username/is_available", to: "auth#username_is_available"
   get "/email/is_available", to: "auth#email_is_available"
 
-  resources :users, only: [:create]
+  resources :users, only: [:create, :update] do
+    post "/delivery_address_upsert", to: "delivery_addresses#upsert"
+  end
+
+  resources :delivery_addresses, only: [:create, :update]
   resources :books
   resources :book_categories
   resources :messages, only: [:create]

@@ -22,12 +22,22 @@ class AuthController < ApplicationController
     end
 
     def login 
-        user = User.find_by(username: params[:username])
+        user = User.includes(:delivery_address).find_by(username: params[:username])
         if user && user.authenticate(params[:password])
             session[:current_user_id] = user.id
             payload = {user_id: user.id}
             token = encode_token(payload)
-            render json: {status: "ok", token: token, message: "Welcome back, #{user.username}", username:user.username}
+            
+            response = {
+                status: "ok",
+                token: token, 
+                message: "Welcome back, #{user.username}",
+                :user => user.serializable_hash
+            };
+            response[:user][:delivery_address] = user.delivery_address.serializable_hash
+
+            
+            render json: response
         else
             render json: {errors: ["Log in failed! Username or password invalid!"]}, status: 401
         end
@@ -43,7 +53,7 @@ class AuthController < ApplicationController
 
     def user_is_authed 
         if session_user
-            render json: { message: "You are authorized", username:session_user }
+            render json: { message: "You are authorized", user:session_user }
         else
             render json: { errors: "No User Logged In"}, status: 404
         end

@@ -1,0 +1,34 @@
+.edit_account_page .user_list, .edit_account_page .address_list
+{
+    list-style: none;
+    padding-left: 0px;  
+    max-width:300px;  
+}
+
+.edit_account_page .user_list li, .edit_account_page .address_list li
+{
+    padding-bottom: 10px;
+}
+
+.edit_account_page .input_field
+{
+    width: 300px;
+    height: 35px;
+    border: solid 1px darkcyan;
+    outline: none;
+}
+
+.edit_account_page .btn_save_user, .edit_account_page .btn_save_address
+{
+    background-color: red;
+    border: 0px;
+    padding: 10px;
+    width:300px;
+    color: white;
+    outline: none;
+}
+
+.edit_account_page .btn_save_user:hover, .edit_account_page .btn_save_address:hover
+{
+    font-weight: bold;
+}

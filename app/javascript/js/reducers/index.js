@@ -1,11 +1,25 @@
-import { DELETE_CART_ALL, DELETE_FROM_CART, ADD_ARTICLE, CREATE_ACCOUNT, CREATE_ACCOUNT_FAILED, LOGIN, LOGIN_FAILED, IS_LOGGED_IN, IS_NOT_LOGGED_IN, ADD_TO_CART, OPEN_CART, CLOSE_CART} from '../constants/action-types';
+import { UPDATE_USER_INFO, DELETE_CART_ALL, DELETE_FROM_CART, ADD_ARTICLE, CREATE_ACCOUNT, CREATE_ACCOUNT_FAILED, LOGIN, LOGIN_FAILED, IS_LOGGED_IN, IS_NOT_LOGGED_IN, ADD_TO_CART, OPEN_CART, CLOSE_CART} from '../constants/action-types';
 
 const initialState = {
     accessToken: null,
     serverError: null,
     articles: [],
     account: {
-      username: null,
+      user:
+      {
+        id: null,
+        username: null,
+        first_name: '', 
+        last_name: '',
+        phone: '',
+        email: '',
+      },
+      delivery_address: {
+        address: '',
+        city: '',
+        country_id: null,
+        region_id: null
+      },
       isLoggedIn: false,
       loginErrors: [],
       newAccountCreated: false,
@@ -50,7 +64,17 @@ const initialState = {
     {
       newState.accessToken = action.payload.token;
       newState.account.isLoggedIn = true;
-      newState.account.username = action.payload.username
+      newState.account.user.id = action.payload.user.id;
+      newState.account.user.username = action.payload.user.username;
+      newState.account.user.first_name = action.payload.user.first_name;
+      newState.account.user.last_name = action.payload.user.last_name;
+      newState.account.user.phone = action.payload.user.phone;
+      newState.account.user.email = action.payload.user.email;
+      console.log(action.payload);
+      if(action.payload.user.delivery_address)
+      {
+        newState.account.delivery_address = action.payload.user.delivery_address;
+      }
     }
 
     if(action.type === LOGIN_FAILED)
@@ -63,7 +87,11 @@ const initialState = {
     {
       newState.accessToken = action.payload.token;
       newState.account.isLoggedIn = true;
-      newState.account.username = action.payload.username;
+      newState.account.user.username = action.payload.user.username;
+      if(action.payload.user.delivery_address)
+      {
+        newState.account.delivery_address = action.payload.user.delivery_address;
+      }
     }
 
     if(action.type === IS_NOT_LOGGED_IN)
@@ -106,6 +134,15 @@ const initialState = {
     {
       newState.shoppingCart.items = [];
     }
+
+    if(action.type === UPDATE_USER_INFO)
+    {
+      newState.account.user.first_name = action.payload.first_name;
+      newState.account.user.last_name = action.payload.last_name;
+      newState.account.user.phone = action.payload.phone;
+      newState.account.user.email = action.payload.email;
+    }
+
     return newState;
   };
   

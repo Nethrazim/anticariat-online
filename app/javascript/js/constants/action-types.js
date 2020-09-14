@@ -11,3 +11,4 @@ export const OPEN_CART = "OPEN_CART";
 export const CLOSE_CART = "CLOSE_CART";
 export const DELETE_FROM_CART = "DELETE_FROM_CART";
 export const DELETE_CART_ALL = "DELETE_CART_ALL";
+export const UPDATE_USER_INFO = "UPDATE_USER_INFO";

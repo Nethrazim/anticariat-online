@@ -9,7 +9,7 @@ const mapStateToProps = function(state)
 {
     return {
         isLoggedIn: state.account.isLoggedIn,
-        username: state.account.username
+        username: state.account.user.username
     }
 }
 

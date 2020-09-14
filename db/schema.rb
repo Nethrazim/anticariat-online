@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_04_074356) do
+ActiveRecord::Schema.define(version: 2020_09_14_094759) do
 
   create_table "book_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", limit: 50, null: false
@@ -44,6 +44,19 @@ ActiveRecord::Schema.define(version: 2020_09_04_074356) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "delivery_addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "address", limit: 254, null: false
+    t.string "city", limit: 50, null: false
+    t.bigint "country_id", null: false
+    t.bigint "region_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["country_id"], name: "fk_rails_aade3f55cc"
+    t.index ["region_id"], name: "fk_rails_883c073211"
+    t.index ["user_id"], name: "fk_rails_42675d2d6f"
   end
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -122,6 +135,9 @@ ActiveRecord::Schema.define(version: 2020_09_04_074356) do
   end
 
   add_foreign_key "books", "book_categories"
+  add_foreign_key "delivery_addresses", "countries"
+  add_foreign_key "delivery_addresses", "regions"
+  add_foreign_key "delivery_addresses", "users"
   add_foreign_key "order_delivery_addresses", "countries"
   add_foreign_key "order_delivery_addresses", "regions"
   add_foreign_key "order_details", "books"
