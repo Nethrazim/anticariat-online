@@ -34,7 +34,7 @@ class AuthController < ApplicationController
                 message: "Welcome back, #{user.username}",
                 :user => user.serializable_hash
             };
-            response[:user][:delivery_address] = user.delivery_address.serializable_hash
+            response[:user][:delivery_address] = user.delivery_address.serializable_hash if user.delivery_address
 
             
             render json: response
