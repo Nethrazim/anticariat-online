@@ -184,7 +184,12 @@ class EditAccount extends React.Component
             .then(function(data) {
                 let newState = Object.assign({}, _this.state);
                 newState.countries_regions = data;
-                newState.selected_country = data[_this.state.user.country_id - 1];
+                newState.selected_country = data[0];
+                if(_this.state.user.country_id)
+                {
+                    newState.selected_country = data[_this.state.user.country_id - 1];
+                }
+                
                 newState.isLoading = false;
                 _this.setState(newState);
             })

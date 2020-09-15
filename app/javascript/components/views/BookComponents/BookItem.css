@@ -1,9 +1,8 @@
 .book_item
 {
     cursor: pointer;
-    max-width: 132px;
     min-height: 350px;
-
+    width:132px;
     margin: 15px;
 }
 

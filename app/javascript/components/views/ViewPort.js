@@ -12,7 +12,7 @@ import Book from './BookComponents/Book';
 import Contact from './Contact';
 import Checkout from './Checkout/Checkout';
 import EditAccount from './Account/EditAccount';
-
+import SearchResults from './SearchBooks/SearchResults';
 
 
 class ViewPort extends Component
@@ -23,6 +23,7 @@ class ViewPort extends Component
             <div className="container-flex d-flex justify-content-center">
                 <div className="view_port">
                         <Switch>
+                            <Route path="/search_results" component={SearchResults}/>
                             <Route path="/books/:id" component={(routeProps) => <Book {...routeProps}/>}/>
                             <Route path="/contact" render={(routeProps) => <Contact {...routeProps}/>} />
                             <Route path="/cumparam" render={(routeProps) => <BuyAdv {...routeProps}/>} />

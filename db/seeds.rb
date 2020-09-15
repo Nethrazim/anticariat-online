@@ -29,6 +29,7 @@ cultura_educatie_category = BookCategory.create(name: 'cultura educatie');
 categories = [literatura_category, bibliofilie_category, copii_category, arta_category, cultura_educatie_category]
 #erase all books
 Book.destroy_all
+titles = ['Calatorie spre centrul pamantului', 'De la pamant la luna', 'Tara blanurilor']
 
 #create a few books
 categories.each do |category|
@@ -36,9 +37,14 @@ categories.each do |category|
         base_64 = img_base64_1 if i % 3 == 0
         base_64 = img_base64_2 if i % 3 == 1
         base_64 = img_base64_3 if i % 3 == 2
+
+        title = titles[0] if i % 3 == 0
+        title = titles[1] if i % 3 == 1
+        title = titles[2] if i % 3 == 2
+
         #base_64 = i % 2 == 0? img_base64_1 : img_base64_2
         #base_64 = i % 4 == 0 ? img_base64_3 : img_base64_2
-        Book.create(author: 'Jules Verne', title:'Calatorie spre centrul pamantului', publisher: 'Amaltea', collection: 'Star Wars', release_year: 1969, isbn:'973-7780-11-6', condition:'Foarte buna', nr_of_pages: 200, book_category_id: category.id, price: 14.39, quantity:10, base64: base_64)
+        Book.create(author: 'Jules Verne', title:title, publisher: 'Amaltea', collection: 'Star Wars', release_year: 1969, isbn:'973-7780-11-6', condition:'Foarte buna', nr_of_pages: 200, book_category_id: category.id, price: 14.39, quantity:10, base64: base_64)
     end
 end
 
@@ -49,7 +55,7 @@ countries.each do |country|
 end
 
 
-regions_romania = ['ALBA','ARAD','ARGES','BACAU','BIHOR''BISTRITA-NASAUD',
+regions_romania = ['ALBA','ARAD','ARGES','BACAU','BIHOR','BISTRITA-NASAUD',
     'BOTOSANI','BRASOV','BRAILA','BUZAU','CARAS-SEVERIN','CALARASI','CLUJ',
     'CONSTANTA','COVASNA','DAMBOVITA','DOLJ','GALATI','GIURGIU','GORJ','HARGHITA',
     'HUNEDOARA','IALOMITA','IASI','ILFOV','MARAMURES','MEHEDINTI','MURES',

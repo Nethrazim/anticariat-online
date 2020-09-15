@@ -1,10 +1,5 @@
-import {UPDATE_USER_INFO, DELETE_CART_ALL, DELETE_FROM_CART, IS_LOGGED_IN, IS_NOT_LOGGED_IN, ADD_ARTICLE, CREATE_ACCOUNT, CREATE_ACCOUNT_FAILED, SERVER_ERROR, LOGIN, LOGIN_FAILED, ADD_TO_CART, OPEN_CART, CLOSE_CART} from "../constants/action-types";
+import {UPDATE_USER_INFO, DELETE_CART_ALL, DELETE_FROM_CART, IS_LOGGED_IN, IS_NOT_LOGGED_IN, CREATE_ACCOUNT, CREATE_ACCOUNT_FAILED, SERVER_ERROR, LOGIN, LOGIN_FAILED, ADD_TO_CART, OPEN_CART, CLOSE_CART} from "../constants/action-types";
 import {host_url} from "../constants/api-urls";
-
-export function addArticle(payload)
-{
-    return { type: ADD_ARTICLE, payload }
-}
 
 export function createAccount(payload)
 {

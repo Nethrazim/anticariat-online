@@ -14,7 +14,7 @@ class Search::SearchBooksController < ApplicationController
     
     def by_name
         search = params[:search]
-        books = Book.where("author LIKE ? or title LIKE ?", "%" + search + "%", "%" + search + "%").first
+        books = Book.where("author LIKE ? or title LIKE ?", "%" + search + "%", "%" + search + "%")
         render json: books, except: [:created_at, :updated_at]         
     end
     

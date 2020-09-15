@@ -109,17 +109,19 @@ class Book extends React.Component
                 </div>
             </div>
             <div className="row">
-                <div className="col-xs-4">
-                    <div>
-                        <Breadcrumbs aria-label="breadcrumb">
-                            <Link to="/">Home</Link>
-                            <Link to="/#" onClick={this.handleGoBack.bind(this)}>Books</Link>
-                            <Link to={"/books/" + this.state.book.id}>{this.state.book.title}</Link>
-                        </Breadcrumbs>
-                    </div>
+                <div>
+                    <Breadcrumbs aria-label="breadcrumb">
+                        <Link to="/">Home</Link>
+                        <Link to="/#" onClick={this.handleGoBack.bind(this)}>Books</Link>
+                        <Link to={"/books/" + this.state.book.id}>{this.state.book.title}</Link>
+                    </Breadcrumbs>
+                </div>
+            </div>
+            <div className="row">
+                <div className="col-md-4">
                     <img src={this.state.book.base64} className="book_img" alt={this.state.book.title}/>
                 </div>
-                <div className="col-xs-4">
+                <div className="col-md-4">
                     <ul className="book_details">
                         <li>
                             <div>
@@ -148,7 +150,7 @@ class Book extends React.Component
                         </li>
                     </ul>
                 </div>
-                <div className="col-xs-4">
+                <div className="col-md-4">
                     <div className="container left_book_details">
                         <div className="d-flex justify-content-center">
                             <p><span className="price">{this.state.book.price}LEI</span></p>

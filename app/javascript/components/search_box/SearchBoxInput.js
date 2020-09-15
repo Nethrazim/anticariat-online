@@ -1,26 +1,15 @@
 import React from 'react';
 
-import { addArticle } from "../../js/actions/index";
 import { connect } from "react-redux";
+import history from '../../js/history/history';
 
 import './SearchBoxInput.css';
 
-function mapDispatchToProps(dispatch) {
-    return {
-        addArticle: article => dispatch(addArticle(article))
-    };
-}
-
 class SearchBox extends React.Component 
 {
-    constructor(props)
-    {
-        super(props);
-
-        this.state = {
-          searchValue: ''  
-        };
-    }
+    state = {
+        searchValue: ''
+    };
 
     handleChangeSearchValue = (event) => {
         this.setState({
@@ -29,8 +18,10 @@ class SearchBox extends React.Component
     }
 
     handleSubmit = (event) => {
-        const { searchValue } = this.state;
-        this.props.addArticle(searchValue);
+        if(this.state.searchValue !== '')
+        {
+            history.push("/search_results?search=" + this.state.searchValue);
+        }
     }
 
     render()
@@ -49,5 +40,4 @@ class SearchBox extends React.Component
     }
 }
 
-const SearchBoxInput = connect(null, mapDispatchToProps)(SearchBox);
-export default SearchBoxInput;
+export default SearchBox;
