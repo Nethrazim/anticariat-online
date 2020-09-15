@@ -10,8 +10,12 @@ class Logo extends React.Component
     {
         return(
             <div className="logo">
-               <img src={logo} alt="caravana cartilor"/><br/>
-               <span>Caravana Cartilor</span>
+                <Link to="/">
+
+                    <img src={logo} alt="caravana cartilor"/><br/>
+                    <span>Caravana Cartilor</span>
+                    
+               </Link>
             </div>
         );
     }
