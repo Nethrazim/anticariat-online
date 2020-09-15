@@ -14,12 +14,13 @@ class Search::SearchBooksController < ApplicationController
     
     def by_name
         search = params[:search]
-        limit = 18 
-        limit = params[:limit] if params[:limit]
+        limit  = params[:per_page]
+        offset = params[:page]
+        
+        books = Book.where("author LIKE ? or title LIKE ?", "%" + search + "%", "%" + search + "%").offset(offset).limit(limit)
+        total = Book.where("author LIKE ? or title LIKE ?", "%" + search + "%", "%" + search + "%").count
 
-        books = Book.where("author LIKE ? or title LIKE ?", "%" + search + "%", "%" + search + "%").limit(limit)
-
-        render json: books, except: [:created_at, :updated_at]         
+        render json: {books: books, total: total}, except: [:created_at, :updated_at]         
     end
     
     def by_category

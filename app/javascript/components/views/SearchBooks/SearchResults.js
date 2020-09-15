@@ -1,8 +1,10 @@
 import React from 'react';
 import BookItem from '../BookComponents/BookItem';
 import LinearProgress from "@material-ui/core/LinearProgress";
+import Pagination from "@material-ui/lab/Pagination";
 
 import './SearchResults.css';
+import { TransferWithinAStationSharp } from '@material-ui/icons';
 
 class SearchResults extends React.Component
 {
@@ -10,6 +12,10 @@ class SearchResults extends React.Component
 
     state = {
         isLoading: false,
+        page: 1, 
+        per_page: 20,
+        per_page_options: [10, 20, 40],
+        total: 0,
         searchValue: this.qs.parse(this.props.location.search)['?search'],
         books: []
     }
@@ -19,15 +25,31 @@ class SearchResults extends React.Component
         this.setState(Object.assign({}, this.state, {isLoading: true}));
 
         var message = {
-            search: this.state.searchValue
+            search: this.state.searchValue,
+            page: this.state.page,
+            per_page: this.state.per_page
         };
 
         var _this = this;
         fetch('/search/name?' + new URLSearchParams(message))
             .then(response => response.json())
             .then(function(data){
-                _this.setState(Object.assign({}, _this.state, {isLoading: false, books: data}));
+                _this.setState(Object.assign({}, _this.state, {isLoading: false, books: data.books, total: data.total}));
             });
+    }
+
+    handlePageChange = (event, value) => 
+    {
+        this.setState(Object.assign({}, this.state, {page:value}), () => {
+            this.fetchBooks()
+        })
+    }
+
+    handlePerPageChange = (event) =>
+    {
+        this.setState(Object.assign({}, this.state, {per_page: event.target.value}),() => {
+            this.fetchBooks()
+        });
     }
 
     componentDidMount() {
@@ -76,6 +98,21 @@ class SearchResults extends React.Component
                     {
                         this.state.isLoading === true && <LinearProgress/>
                     }
+                </div>
+            </div>
+            <div className="row pagination_row">
+                <div className="col-md-12">
+                    <div className="pagination_widget">
+                        <Pagination count={Math.floor(this.state.total / this.state.per_page) + (this.state.total % this.state.per_page === 0 ? 0 : 1)} page={this.state.page} className="paginationWidget" onChange={this.handlePageChange.bind(this)} showFirstButton showLastButton/>
+                    </div>
+                    <div className="per_page">
+                        <span>Arata:</span>
+                        <select value={this.state.per_page} onChange={this.handlePerPageChange.bind(this)}>
+                            {
+                                this.state.per_page_options.map((item,i) => <option key={i}>{item}</option>)
+                            }
+                        </select>
+                    </div>
                 </div>
             </div>
             <div className="container book_results_grid">

@@ -2,3 +2,30 @@
 {
     max-width: 1000px;
 }
+
+.search_results_page .pagination_row
+{
+    padding-bottom: 20px;
+}
+
+.search_results_page .pagination_widget
+{
+    float: right;
+    padding-right: 50px;
+}
+
+.search_results_page .per_page
+{
+    float:right;
+    line-height: 35px;
+}
+
+.search_results_page .per_page select
+{
+    width: 100px;
+}
+
+.search_results_page .per_page span
+{
+    padding-right: 10px;
+}

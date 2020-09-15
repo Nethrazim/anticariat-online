@@ -29,7 +29,8 @@ cultura_educatie_category = BookCategory.create(name: 'cultura educatie');
 categories = [literatura_category, bibliofilie_category, copii_category, arta_category, cultura_educatie_category]
 #erase all books
 Book.destroy_all
-titles = ['Calatorie spre centrul pamantului', 'De la pamant la luna', 'Tara blanurilor']
+titles = ['Calatorie spre centrul pamantului', 'De la pamant la luna', 'Tara blanurilor',
+        '20000 de leghe sub mari', 'Doi ani de vacanta', '800 de leghe pe amazon', 'In jurul lunii']
 
 #create a few books
 categories.each do |category|
@@ -38,12 +39,14 @@ categories.each do |category|
         base_64 = img_base64_2 if i % 3 == 1
         base_64 = img_base64_3 if i % 3 == 2
 
-        title = titles[0] if i % 3 == 0
-        title = titles[1] if i % 3 == 1
-        title = titles[2] if i % 3 == 2
-
-        #base_64 = i % 2 == 0? img_base64_1 : img_base64_2
-        #base_64 = i % 4 == 0 ? img_base64_3 : img_base64_2
+        title = titles[0] if i % 7 == 0
+        title = titles[1] if i % 7 == 1
+        title = titles[2] if i % 7 == 2
+        title = titles[3] if i % 7 == 3
+        title = titles[4] if i % 7 == 4
+        title = titles[5] if i % 7 == 5
+        title = titles[6] if i % 7 == 6
+        
         Book.create(author: 'Jules Verne', title:title, publisher: 'Amaltea', collection: 'Star Wars', release_year: 1969, isbn:'973-7780-11-6', condition:'Foarte buna', nr_of_pages: 200, book_category_id: category.id, price: 14.39, quantity:10, base64: base_64)
     end
 end
