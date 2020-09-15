@@ -14,7 +14,11 @@ class Search::SearchBooksController < ApplicationController
     
     def by_name
         search = params[:search]
-        books = Book.where("author LIKE ? or title LIKE ?", "%" + search + "%", "%" + search + "%")
+        limit = 18 
+        limit = params[:limit] if params[:limit]
+
+        books = Book.where("author LIKE ? or title LIKE ?", "%" + search + "%", "%" + search + "%").limit(limit)
+
         render json: books, except: [:created_at, :updated_at]         
     end
     
