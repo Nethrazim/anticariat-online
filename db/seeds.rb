@@ -58,6 +58,7 @@ countries.each do |country|
 end
 
 
+
 regions_romania = ['ALBA','ARAD','ARGES','BACAU','BIHOR','BISTRITA-NASAUD',
     'BOTOSANI','BRASOV','BRAILA','BUZAU','CARAS-SEVERIN','CALARASI','CLUJ',
     'CONSTANTA','COVASNA','DAMBOVITA','DOLJ','GALATI','GIURGIU','GORJ','HARGHITA',
