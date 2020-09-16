@@ -100,6 +100,7 @@ class SearchResults extends React.Component
                     }
                 </div>
             </div>
+            
             <div className="row pagination_row">
                 <div className="col-md-12">
                     <div className="pagination_widget">

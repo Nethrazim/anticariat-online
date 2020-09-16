@@ -1,0 +1,43 @@
+{
+  "Index.js": "/packs/js/Index-cc944be6ba0c70368e8b.js",
+  "Index.js.map": "/packs/js/Index-cc944be6ba0c70368e8b.js.map",
+  "application.js": "/packs/js/application-553c391e81e5eb868dfb.js",
+  "application.js.map": "/packs/js/application-553c391e81e5eb868dfb.js.map",
+  "entrypoints": {
+    "application": {
+      "js": [
+        "/packs/js/application-553c391e81e5eb868dfb.js"
+      ],
+      "js.map": [
+        "/packs/js/application-553c391e81e5eb868dfb.js.map"
+      ]
+    },
+    "hello_react": {
+      "js": [
+        "/packs/js/hello_react-188f586ed491e73bd624.js"
+      ],
+      "js.map": [
+        "/packs/js/hello_react-188f586ed491e73bd624.js.map"
+      ]
+    },
+    "Index": {
+      "js": [
+        "/packs/js/Index-cc944be6ba0c70368e8b.js"
+      ],
+      "js.map": [
+        "/packs/js/Index-cc944be6ba0c70368e8b.js.map"
+      ]
+    }
+  },
+  "hello_react.js": "/packs/js/hello_react-188f586ed491e73bd624.js",
+  "hello_react.js.map": "/packs/js/hello_react-188f586ed491e73bd624.js.map",
+  "media/images/background.jpg": "/packs/media/images/background-95c53b3b.jpg",
+  "media/images/carriage-logo.png": "/packs/media/images/carriage-logo-4f98070d.png",
+  "media/images/carti_1.jpg": "/packs/media/images/carti_1-04159cb6.jpg",
+  "media/images/carti_2.jpg": "/packs/media/images/carti_2-d82ebb04.jpg",
+  "media/images/cumparam-carti.jpg": "/packs/media/images/cumparam-carti-2287f8fe.jpg",
+  "media/images/magazin_1.jpg": "/packs/media/images/magazin_1-dac8cc75.jpg",
+  "media/images/magazin_3.jpg": "/packs/media/images/magazin_3-3e1efafd.jpg",
+  "media/images/magazin_4.jpg": "/packs/media/images/magazin_4-3fb04d06.jpg",
+  "media/images/phone.jpg": "/packs/media/images/phone-232f6876.jpg"
+}
