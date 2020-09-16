@@ -94,13 +94,19 @@ class SearchResults extends React.Component
         this.createGrid.bind(this);
         return(<div className="container search_results_page">
              <div className="row">
+
+
                 <div className="col-md-12">
                     {
                         this.state.isLoading === true && <LinearProgress/>
                     }
                 </div>
             </div>
+
+
+
             
+
             <div className="row pagination_row">
                 <div className="col-md-12">
                     <div className="pagination_widget">
