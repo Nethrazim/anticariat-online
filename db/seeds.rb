@@ -47,7 +47,14 @@ categories.each do |category|
         title = titles[5] if i % 7 == 5
         title = titles[6] if i % 7 == 6
         
-        Book.create(author: 'Jules Verne', title:title, publisher: 'Amaltea', collection: 'Star Wars', release_year: 1969, isbn:'973-7780-11-6', condition:'Foarte buna', nr_of_pages: 200, book_category_id: category.id, price: 14.39, quantity:10, base64: base_64)
+        book = Book.new(author: 'Jules Verne', title:title, publisher: 'Amaltea', collection: 'Star Wars', release_year: 1969, isbn:'973-7780-11-6', condition:'Foarte buna', nr_of_pages: 200, book_category_id: category.id, price: 14.39, quantity:10, base64: base_64)
+
+        book.save
+
+        if i % 6 == 0 || i % 4 == 0
+            reduction = rand(90)
+            PriceReduction.create(percent_reduction: reduction, book_id: book.id)
+        end
     end
 end
 
@@ -56,8 +63,6 @@ countries = ['Austria', 'Belgia', 'Bulgaria', 'Croatia', 'Cipru', 'Cehia', 'Dane
 countries.each do |country|
     Country.create(name: country)
 end
-
-
 
 regions_romania = ['ALBA','ARAD','ARGES','BACAU','BIHOR','BISTRITA-NASAUD',
     'BOTOSANI','BRASOV','BRAILA','BUZAU','CARAS-SEVERIN','CALARASI','CLUJ',

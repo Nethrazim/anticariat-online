@@ -58,7 +58,7 @@ class Home extends React.Component
                                 this.state.newBooks.map((item, i) => {
                                 return <li key={i}>
                                             <div>
-                                                <BookItem id={item.id} author={item.author} title={item.title} base64={item.base64} price={item.price} year={item.release_year}/>
+                                                <BookItem book={item}/>
                                             </div>
                                         </li>
                                 })

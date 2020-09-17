@@ -4,6 +4,7 @@
     min-height: 350px;
     width:132px;
     margin: 15px;
+    position:relative;
 }
 
 .book_item:hover
@@ -38,13 +39,46 @@
 .book_item .price
 {
     padding-top: 10px;
-    font-size: 14px;
+    font-size: 12px;
+    padding-right: 1px;
     color: red;
+}
+
+.book_item .old_price
+{
+    padding-top: 10px;
+    padding-right:1px;
+    font-size: 12px;
+    color: black;
 }
 
 .book_item .currency
 {
     padding-top: 10px;
-    font-size: 14px;
+    padding-right: 1px;
+    font-size: 12px;
     color: RED;
+}
+
+.book_item .old_currency 
+{
+    padding-top: 10px;
+    padding-right: 1px;
+    font-size: 12px;
+    color: black;
+}
+
+.book_item .reduction_box
+{
+    position: absolute;
+    width: 50px;
+    background-color: red;
+    left: 30%;
+    padding-left: 5px;
+}
+
+.book_item .reduction_box span
+{
+    display: block;
+    color: white;
 }

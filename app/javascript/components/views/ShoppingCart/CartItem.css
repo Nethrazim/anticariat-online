@@ -13,6 +13,11 @@
     padding-left: 50px;
 }
 
+.cart_item .item_col 
+{
+    width: 200px;
+}
+
 .cart_item .price
 {
     color: red;

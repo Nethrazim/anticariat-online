@@ -185,7 +185,7 @@ class Checkout extends React.Component
         var isOrderRegistered = this.state.registered_order === null ? false : true
 
         var total = 0;
-        this.props.items.forEach((item, index) => total += item.price);
+        this.props.items.forEach((item, index) => total += !item.price_reduction ? item.price : parseFloat((item.price - ((item.price_reduction.percent_reduction * item.price) / 100)).toFixed(2)));
         return(
         isCartEmpty === false || isOrderRegistered === true? 
         isOrderRegistered === true ? 
@@ -367,7 +367,7 @@ class Checkout extends React.Component
                                         <span className="right">{item.condition}</span>
                                     </td>
                                     <td>
-                                        <span className="right">{item.price}</span>
+                                        <span className="right">{item.price_reduction ? (item.price - ((item.price_reduction.percent_reduction * item.price) / 100)).toFixed(2) : item.price}</span>
                                     </td>
                                     <td>
                                         <div>

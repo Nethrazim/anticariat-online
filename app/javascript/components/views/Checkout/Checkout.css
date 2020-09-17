@@ -66,6 +66,11 @@
     width: 1080px;
 }
 
+.checkout_page .items_wrapper  .items_table .book_details_list
+{
+    width: 300px;
+}
+
 .checkout_page .items_wrapper .items_table .book_details
 {
     list-style:none;

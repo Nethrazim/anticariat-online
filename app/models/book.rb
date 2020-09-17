@@ -1,5 +1,6 @@
 class Book < ApplicationRecord
     belongs_to :book_category
-
-    validates :author, :title, :price, presence: true
+    has_one :price_reduction
+    
+    validates :author, :title, :price, :book_category_id, presence: true
 end

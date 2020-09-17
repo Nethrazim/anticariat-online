@@ -1,3 +1,19 @@
+.book_data_box .reduction_box
+{
+    position: absolute;
+    width: 65px;
+    background-color: red;
+    left: 22%;
+    padding-left: 5px;
+    font-size: 20px;
+}
+
+.book_data_box .reduction_box span
+{
+    display: block;
+    color: white;
+}
+
 .book_data_box .book_img
 {
     width:200px;
@@ -38,6 +54,13 @@
     font-weight: bold;
     color: red
 }
+.book_data_box .left_book_details .old_price
+{
+    text-decoration: line-through; 
+    font-size: 16px;
+    font-weight: bold;
+    color: gray;   
+}
 
 .book_data_box .left_book_details .stock
 {
@@ -48,7 +71,7 @@
 {
     border:0;
     height: 40px;
-    background-color: red;
+    background-color: crimson;
     color: white;
     outline:none;
     width: 150px;

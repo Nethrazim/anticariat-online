@@ -92,7 +92,7 @@ class Book extends React.Component
     componentDidUpdate(prevProps) {
         if(this.props.match.params.id !== prevProps.match.params.id)
         {
-            this.setState(Object.assign({}, this.state, {isLoading: true}))
+            this.setState(Object.assign({}, this.state, {isLoading: true, isAddedToCart: false}))
             this.fetchBookData();   
         }
     }
@@ -119,6 +119,7 @@ class Book extends React.Component
             </div>
             <div className="row">
                 <div className="col-md-4">
+                    {this.state.book.price_reduction && <div className="reduction_box"><span>-{this.state.book.price_reduction.percent_reduction}%</span></div>}
                     <img src={this.state.book.base64} className="book_img" alt={this.state.book.title}/>
                 </div>
                 <div className="col-md-4">
@@ -152,8 +153,12 @@ class Book extends React.Component
                 </div>
                 <div className="col-md-4">
                     <div className="container left_book_details">
+                        {this.state.book.price_reduction && <div className="d-flex justify-content-center">
+                            <p>Pret vechi: <span className="old_price">{this.state.book.price}LEI</span></p>
+                        </div>}
                         <div className="d-flex justify-content-center">
-                            <p><span className="price">{this.state.book.price}LEI</span></p>
+                            {this.state.book.price_reduction && <p><span className="price">Pret redus:  {(this.state.book.price - ((this.state.book.price_reduction.percent_reduction * this.state.book.price) / 100)).toFixed(2)}LEI</span></p>}
+                            {!this.state.book.price_reduction && <p><span className="price">{this.state.book.price}LEI</span></p>}
                         </div>
                         <div className="d-flex justify-content-center">
                             <p><span>{this.state.book.condition}</span></p>
@@ -206,7 +211,7 @@ class Book extends React.Component
                         {
                             this.state.recommended_books.map((item,i) =>
                             {
-                                return <li className="recomandari_books_list_item" key={i}><BookItem id={item.id} author={item.author} title={item.title} base64={item.base64} price={item.price} year={item.release_year}/></li>
+                                return <li className="recomandari_books_list_item" key={i}><BookItem book={item}/></li>
                             })
                         }
                     </ul>

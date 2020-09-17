@@ -116,7 +116,7 @@ class DisplayBooks extends React.Component
 
     createBookItem = (idx, book) =>
     {
-        return(<td key={idx}><BookItem id={book.id} author={book.author} title={book.title} base64={book.base64} price={book.price} year={book.release_year}/></td>);   
+        return(<td key={idx}><BookItem book={book}/></td>);   
     }
 
     createTable = () =>

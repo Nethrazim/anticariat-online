@@ -7,9 +7,9 @@ class Search::SearchBooksController < ApplicationController
         book_category_id = params[:book_category_id]
         author = params[:author]
         limit = params[:limit]
-        recommended_books = Book.where("(author = ? or book_category_id = ?) and id <> ?", author, book_category_id, book_id).order("RAND() ").limit(limit)
+        recommended_books = Book.includes(:price_reduction).where("(author = ? or book_category_id = ?) and id <> ?", author, book_category_id, book_id).order("RAND() ").limit(limit)
         
-        render json: recommended_books, except: [:created_at, :updated_at]
+        render json: recommended_books, include: :price_reduction, except: [:created_at, :updated_at]
     end
     
     def by_name
@@ -17,10 +17,10 @@ class Search::SearchBooksController < ApplicationController
         limit  = params[:per_page]
         offset = params[:page]
         
-        books = Book.where("author LIKE ? or title LIKE ?", "%" + search + "%", "%" + search + "%").offset(offset).limit(limit)
+        books = Book.includes(:price_reduction).where("author LIKE ? or title LIKE ?", "%" + search + "%", "%" + search + "%").offset(offset).limit(limit)
         total = Book.where("author LIKE ? or title LIKE ?", "%" + search + "%", "%" + search + "%").count
 
-        render json: {books: books, total: total}, except: [:created_at, :updated_at]         
+        render :json => {books: books, total: total}, :include => :price_reduction, :except => [:created_at, :updated_at]         
     end
     
     def by_category
@@ -39,14 +39,14 @@ class Search::SearchBooksController < ApplicationController
             year_to = params[:year_to].to_i if params[:year_to].present?
 
             book_category = BookCategory.find_by!(name: category)
-            books = Book.where(book_category_id: book_category.id)
+            books = Book.includes(:price_reduction).where(book_category_id: book_category.id)
             books = books.where('title LIKE ? or author LIKE ?', "%#{name}%", "%#{name}%") if name
             books = books.where(price: (price_from..price_to)) if price_from && price_to
             books = books.where(release_year: (year_from..year_to)) if (year_from && year_to)
             books = books.limit(per_page).offset(per_page * (page - 1))
             total = Book.where(book_category_id: book_category.id).count
 
-            render json: {total: total, books: books}, except:[:created_at, :updated_at]
+            render :json => {total: total, books: books}, :include => :price_reduction,:except => [:created_at, :updated_at]
         rescue ActiveRecord::RecordNotFound => ex
             render json: {total: 0, books: []}, status: 200
         rescue => exception
@@ -57,8 +57,8 @@ class Search::SearchBooksController < ApplicationController
     def by_latest
         begin
             latest = params[:latest]
-            books = Book.order(created_at: :desc).limit(latest);
-            render json: {total: latest, books: books}, except: [:created_at, :updated_at]
+            books = Book.includes(:price_reduction).order(created_at: :desc).limit(latest);
+            render json: {total: latest, books: books}, include: :price_reduction,except: [:created_at, :updated_at]
         rescue ActiveRecord::RecordNotFound => ex
             render json: {total: 0, books: []}, status: 200
         rescue => exception

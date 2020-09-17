@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_094759) do
+ActiveRecord::Schema.define(version: 2020_09_17_110746) do
 
   create_table "book_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", limit: 50, null: false
@@ -105,6 +105,14 @@ ActiveRecord::Schema.define(version: 2020_09_14_094759) do
     t.index ["user_id"], name: "fk_rails_f868b47f6a"
   end
 
+  create_table "price_reductions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.float "percent_reduction", null: false
+    t.bigint "book_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "fk_rails_7aecd0db53"
+  end
+
   create_table "regions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "country_id", null: false
@@ -144,5 +152,6 @@ ActiveRecord::Schema.define(version: 2020_09_14_094759) do
   add_foreign_key "order_details", "orders"
   add_foreign_key "orders", "order_delivery_addresses"
   add_foreign_key "orders", "users"
+  add_foreign_key "price_reductions", "books"
   add_foreign_key "regions", "countries"
 end

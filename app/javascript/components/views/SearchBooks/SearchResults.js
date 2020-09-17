@@ -77,7 +77,7 @@ class SearchResults extends React.Component
             var row = [];   
             sliced_books.forEach((item, i) => {
                 row.push(<div key={i + idx * length} className="col-xs-2">
-                            <BookItem id={item.id} author={item.author} title={item.title} base64={item.base64} price={item.price} year={item.release_year}/>
+                            <BookItem book={item}/>
                             <hr/>
                         </div>)
             });

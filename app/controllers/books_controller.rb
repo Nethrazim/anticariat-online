@@ -10,7 +10,7 @@ class BooksController < ApplicationController
 
   # GET /books/1
   def show
-    render json: @book, except: [:created_at, :updated_at]
+    render json: @book, include: :price_reduction, except: [:created_at, :updated_at]
   end
 
   # POST /books
@@ -42,7 +42,7 @@ class BooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
-      @book = Book.find_by(id: params[:id])
+      @book = Book.includes(:price_reduction).find_by(id: params[:id])
       render json: {status: "not ok", "message": "Book not found."}, status: :not_found unless @book
     end
 
