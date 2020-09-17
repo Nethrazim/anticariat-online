@@ -119,8 +119,10 @@ class Book extends React.Component
             </div>
             <div className="row">
                 <div className="col-md-4">
-                    {this.state.book.price_reduction && <div className="reduction_box"><span>-{this.state.book.price_reduction.percent_reduction}%</span></div>}
-                    <img src={this.state.book.base64} className="book_img" alt={this.state.book.title}/>
+                    <div className="img_holder">
+                        {this.state.book.price_reduction && <div className="reduction_box"><span>-{this.state.book.price_reduction.percent_reduction}%</span></div>}
+                        <img src={this.state.book.base64} className="book_img" alt={this.state.book.title}/>
+                    </div>
                 </div>
                 <div className="col-md-4">
                     <ul className="book_details">
