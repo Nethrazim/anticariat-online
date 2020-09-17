@@ -4,6 +4,11 @@
     width: 300px
 }
 
+.book_data_box .col_width
+{
+    width: 300px;
+}
+
 .book_data_box .reduction_box
 {
     position: absolute;
