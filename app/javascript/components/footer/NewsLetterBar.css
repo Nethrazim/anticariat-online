@@ -61,8 +61,9 @@
     background-color: red;
 }
 
-.cb_terms_and_conditions
+.news_letter_box .nlb_col_width
 {
+    width: 380px;
 }
 
 .popper

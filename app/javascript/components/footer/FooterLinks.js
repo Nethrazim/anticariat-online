@@ -11,7 +11,7 @@ class FooterLinks extends React.Component
     {
         return( 
             <div className="row footer_links_box">
-                <div className="col-sm4">
+                <div className="col-sm-3 flb_col_width">
                     <div>
                         <ul>
                             <li className="list_title">
@@ -44,7 +44,7 @@ class FooterLinks extends React.Component
                         </ul>
                     </div>
                 </div>
-                <div className="col-sm4">
+                <div className="col-sm-3 flb_col_width">
                     <div>
                         <ul>
                             <li className="list_title">
@@ -59,7 +59,7 @@ class FooterLinks extends React.Component
                         </ul>
                     </div>
                 </div>
-                <div className="col-sm4">
+                <div className="col-sm-3 flb_col_width">
                     <div>
                         <ul>
                             <li className="list_title">
@@ -77,7 +77,7 @@ class FooterLinks extends React.Component
                         </ul>
                     </div>
                 </div>
-                <div className="col-sm4 account_wish_cart_box">
+                <div className="col-sm-3 flb_col_width">
                     <div>
                         <ul className="account_wish_cart">
                             <li className="list_title"></li>

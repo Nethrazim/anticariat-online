@@ -91,7 +91,7 @@ class NewsLetterBar extends React.Component
         return(
             <div className="container news_letter_bar">
             <div className="row news_letter_box">
-                <div className="col-md-4">
+                <div className="col-md-4  nlb_col_width">
                     <div className="subscribe_box">
                         <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" className="bi bi-envelope" fill="white" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383l-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
@@ -99,7 +99,7 @@ class NewsLetterBar extends React.Component
                         <span>ABONEAZA-TE LA NEWSLETTER</span>
                     </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-md-4 nlb_col_width">
                     <div className="terms_and_conditions_box">
                         <input type="checkbox" className="cb_terms_and_conditions" name="terms_and_conditions" checked={this.state.terms} onChange={this.handleTermsChange.bind(this)}/>
                         <label htmlFor="terms_and_conditions">
@@ -107,7 +107,7 @@ class NewsLetterBar extends React.Component
                         </label>
                     </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-md-4 nlb_col_width">
                     <div className="news_letter_email_box">
                         <input type="text" name="news_letter_email" placeholder="Introduceti adresa de E-mail" value={this.state.email} onChange={this.handleEmailChange.bind(this)}/>
                         <svg onClick={this.submitSubscription.bind(this)}width="1.3em" height="1.3em" viewBox="0 0 16 16" className="bi bi-arrow-right-short" fill="white" xmlns="http://www.w3.org/2000/svg">
