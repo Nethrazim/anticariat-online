@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import head_img from '../../components/assets/images/cumparam-carti.jpg';
+import head_img from '../../components/assets/images/cumparam-carti_header.jpg';
 
 import BookItem from './BookComponents/BookItem';
 

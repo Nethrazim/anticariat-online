@@ -1,6 +1,6 @@
 {
-  "Index.js": "/packs/js/Index-c62b12036186abda063d.js",
-  "Index.js.map": "/packs/js/Index-c62b12036186abda063d.js.map",
+  "Index.js": "/packs/js/Index-4dd333d30d4d367072a2.js",
+  "Index.js.map": "/packs/js/Index-4dd333d30d4d367072a2.js.map",
   "application.js": "/packs/js/application-9afcbb5693aa87623e69.js",
   "application.js.map": "/packs/js/application-9afcbb5693aa87623e69.js.map",
   "entrypoints": {
@@ -22,10 +22,10 @@
     },
     "Index": {
       "js": [
-        "/packs/js/Index-c62b12036186abda063d.js"
+        "/packs/js/Index-4dd333d30d4d367072a2.js"
       ],
       "js.map": [
-        "/packs/js/Index-c62b12036186abda063d.js.map"
+        "/packs/js/Index-4dd333d30d4d367072a2.js.map"
       ]
     }
   },
@@ -35,7 +35,7 @@
   "media/images/carriage-logo.png": "/packs/media/images/carriage-logo-4f98070d.png",
   "media/images/carti_1.jpg": "/packs/media/images/carti_1-04159cb6.jpg",
   "media/images/carti_2.jpg": "/packs/media/images/carti_2-d82ebb04.jpg",
-  "media/images/cumparam-carti.jpg": "/packs/media/images/cumparam-carti-6c6bb1a2.jpg",
+  "media/images/cumparam-carti_header.jpg": "/packs/media/images/cumparam-carti_header-6c6bb1a2.jpg",
   "media/images/magazin_1.jpg": "/packs/media/images/magazin_1-dac8cc75.jpg",
   "media/images/magazin_3.jpg": "/packs/media/images/magazin_3-3e1efafd.jpg",
   "media/images/magazin_4.jpg": "/packs/media/images/magazin_4-3fb04d06.jpg",
