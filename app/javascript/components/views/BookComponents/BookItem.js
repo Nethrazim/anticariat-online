@@ -41,7 +41,7 @@ class BookItem extends React.Component
                                 {
                                     this.props.book.price_reduction && 
                                     <div>
-                                        <span className="old_price">Pret Vechi:</span><span className="old_price">{this.props.book.price}</span><span className="old_currency">LEI</span><br/>
+                                        <span className="old_price_tag">Pret Vechi:</span><span className="old_price">{this.props.book.price}</span><span className="old_currency">LEI</span><br/>
                                         <span className="price">Pret Nou:</span><span className="price">{(this.props.book.price - ((this.props.book.price_reduction.percent_reduction * this.props.book.price) / 100)).toFixed(2)}</span><span className="currency">LEI</span>
                                     </div> 
                                 }
