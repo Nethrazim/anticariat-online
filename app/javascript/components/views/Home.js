@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import head_img from '../../components/assets/images/cumparam-carti.jpg';
 
@@ -43,7 +44,9 @@ class Home extends React.Component
         return(
             <div className="home_wrapper">
                 <div className="container-fluid d-flex justify-content-center head_img">
-                    <img src={head_img} alt=""/>
+                    <Link to="/cumparam">
+                        <img src={head_img} alt=""/>
+                    </Link>
                 </div>
                 <div className="container-fluid d-flex justify-content-center">
                     <div className="new_books_wrapper">
