@@ -13,14 +13,20 @@ class Search::SearchBooksController < ApplicationController
     end
     
     def by_name
-        search = params[:search]
-        limit  = params[:per_page]
-        offset = params[:page]
+        begin
+            search = params[:search]
+            per_page  = params[:per_page].to_i
+            page = params[:page].to_i
         
-        books = Book.includes(:price_reduction).where("author LIKE ? or title LIKE ?", "%" + search + "%", "%" + search + "%").offset(offset).limit(limit)
-        total = Book.where("author LIKE ? or title LIKE ?", "%" + search + "%", "%" + search + "%").count
+            books = Book.includes(:price_reduction).where("author LIKE ? or title LIKE ?", "%" + search + "%", "%" + search + "%").offset(per_page * page).limit(per_page)
+            total = Book.where("author LIKE ? or title LIKE ?", "%" + search + "%", "%" + search + "%").count
 
-        render :json => {books: books, total: total}, :include => :price_reduction, :except => [:created_at, :updated_at]         
+            render :json => {books: books, total: total}, :include => :price_reduction, :except => [:created_at, :updated_at]                     
+        rescue => exception
+            binding.pry
+            render json: {total: 0, books: []}, status: 500
+        end
+
     end
     
     def by_category
@@ -61,6 +67,21 @@ class Search::SearchBooksController < ApplicationController
             render json: {total: latest, books: books}, include: :price_reduction,except: [:created_at, :updated_at]
         rescue ActiveRecord::RecordNotFound => ex
             render json: {total: 0, books: []}, status: 200
+        rescue => exception
+            render json: {total: 0, books: []}, status: 500
+        end
+    end
+
+    def by_author
+        begin
+            search = params[:search]
+            per_page  = params[:per_page].to_i
+            page = params[:page].to_i
+        
+            books = Book.includes(:price_reduction).where("author = ?", search).offset(per_page * page).limit(per_page)
+            total = Book.where("author = ?",search).count
+
+            render :json => {books: books, total: total}, :include => :price_reduction, :except => [:created_at, :updated_at]                     
         rescue => exception
             render json: {total: 0, books: []}, status: 500
         end

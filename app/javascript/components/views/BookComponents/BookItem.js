@@ -9,21 +9,26 @@ class BookItem extends React.Component
     render()
     {
         return(
-            <Link to={"/books/" + this.props.book.id}>
                 <div className="book_item">
                     {this.props.book.price_reduction && <div className="reduction_box"><span>-{this.props.book.price_reduction.percent_reduction}%</span></div>}
                     <ul className="book_item_details_list">
                         <li>
-                            <img src={this.props.book.base64} alt=""/>
+                            <Link to={"/books/" + this.props.book.id}>
+                                <img src={this.props.book.base64} alt=""/>
+                            </Link>
                         </li>
                         <li>
                             <div className="container-fluid d-flex justfiy-content-center">
-                                <span className="title">{this.props.book.title}</span>
+                                <Link to={"/books/" + this.props.book.id}>
+                                    <span className="title">{this.props.book.title}</span>
+                                </Link>
                             </div>
                         </li>
                         <li>
                             <div className="container-fluid d-flex justfiy-content-center">
-                                <span className="author">{this.props.book.author}</span>
+                                <Link to={"/authors/" + this.props.book.author}>
+                                    <span className="author">{this.props.book.author}</span>
+                                </Link>
                             </div>
                         </li>
                         <li>
@@ -51,7 +56,6 @@ class BookItem extends React.Component
                         </li>
                     </ul>
                 </div>
-            </Link>
         );
     }
 }

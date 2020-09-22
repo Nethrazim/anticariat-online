@@ -31,6 +31,7 @@ categories = [literatura_category, bibliofilie_category, copii_category, arta_ca
 Book.destroy_all
 titles = ['Calatorie spre centrul pamantului', 'De la pamant la luna', 'Tara blanurilor',
         '20000 de leghe sub mari', 'Doi ani de vacanta', '800 de leghe pe amazon', 'In jurul lunii']
+authors = ["Jules Verne", "J.K. Rowling", "Ioan Dan"]
 
 #create a few books
 categories.each do |category|
@@ -47,7 +48,12 @@ categories.each do |category|
         title = titles[5] if i % 7 == 5
         title = titles[6] if i % 7 == 6
         
-        book = Book.new(author: 'Jules Verne', title:title, publisher: 'Amaltea', collection: 'Star Wars', release_year: 1969, isbn:'973-7780-11-6', condition:'Foarte buna', nr_of_pages: 200, book_category_id: category.id, price: 14.39, quantity:10, base64: base_64)
+        author =  authors[0] if i % 3 == 0
+        author = authors[1] if i % 3 == 1
+        author = authors[2] if i % 3 == 2
+
+
+        book = Book.new(author: author, title:title, publisher: 'Amaltea', collection: 'Star Wars', release_year: 1969, isbn:'973-7780-11-6', condition:'Foarte buna', nr_of_pages: 200, book_category_id: category.id, price: 14.39, quantity:10, base64: base_64)
 
         book.save
 

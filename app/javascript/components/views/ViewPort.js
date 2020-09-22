@@ -4,16 +4,16 @@ import {Route, Switch} from 'react-router-dom';
 import './ViewPort.css';
 
 import Account from './Account/Account';
-import LoginBox from './LoginBox';
+import LoginBox from './Account/LoginBox';
 import DisplayBooks from './BooksView/DisplayBooks';
 import Home from './Home';
 import BuyAdv from './BuyAdv';
 import Book from './BookComponents/Book';
+import Author from './BookComponents/Author';
 import Contact from './Contact';
 import Checkout from './Checkout/Checkout';
 import EditAccount from './Account/EditAccount';
 import SearchResults from './SearchBooks/SearchResults';
-
 
 class ViewPort extends Component
 {
@@ -40,6 +40,7 @@ class ViewPort extends Component
                             <Route path="/altele" component={(routeProps) => <DisplayBooks {...routeProps} category="altele"/>} />
                             <Route path="/account" render={(routeProps) => <Account {...routeProps}/>}/>
                             <Route path="/edit_account" render={(routeProps) => <EditAccount {...routeProps} />}/>
+                            <Route path="/authors/:author_name" render={(routeProps) => <Author {...routeProps} /> }/>
                             <Route path="/login" render={(routeProps) => <LoginBox {...routeProps}/>}/>
                             <Route path="/checkout" render={(routeProps) => <Checkout {...routeProps}/>}/>
                             <Route path="/" render={(routeProps) => <Home {...routeProps}/>} />

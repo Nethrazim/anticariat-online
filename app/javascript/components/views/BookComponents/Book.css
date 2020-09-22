@@ -59,6 +59,11 @@
     font-style: italic;
 }
 
+.book_data_box .book_details .author:hover
+{
+    color: chocolate;
+}
+
 .book_data_box .left_book_details .price 
 {
     font-size: 16px;

@@ -129,7 +129,9 @@ class Book extends React.Component
                         <li>
                             <div>
                                 <span className="block title">{this.state.book.title}</span>
-                                <span className="block author">{this.state.book.author}</span>
+                                <Link to={"/authors/" + this.state.book.author}>
+                                    <span className="block author">{this.state.book.author}</span>
+                                </Link>
                                 <hr/>
                             </div>
                         </li>

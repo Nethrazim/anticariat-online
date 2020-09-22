@@ -1,3 +1,10 @@
+.search_results_page .header
+{
+    padding-left: 10px;
+    font-size: 20px;
+    color: chocolate;
+}
+
 .search_results_page .book_results_grid
 {
     max-width: 1000px;
