@@ -17,16 +17,12 @@ class LoginBox extends React.Component
 {
     constructor(props)
     {
-        super(props);
+        super();
         this.state = {
             username: "",
             password: ""
         };
-        this.validator = new SimpleReactValidator();
-        
-        this.handleChangeUsername = this.handleChangeUsername.bind(this);
-        this.handleChangePassword = this.handleChangePassword.bind(this);
-        this.handleLogin = this.handleLogin.bind(this);
+        this.validator = new SimpleReactValidator();   
     }
     
     componentDidUpdate()
@@ -36,26 +32,27 @@ class LoginBox extends React.Component
             this.props.history.push("/literatura");
         }
     }
-    setNewState(newState)
+
+    setNewState = (newState) =>
     {
         this.setState(newState);
     }
 
-    handleChangeUsername(event)
+    handleChangeUsername = (event) =>
     {
         var newState = Object.assign({}, this.state)
         newState.username = event.target.value;
         this.setNewState(newState);
     }
 
-    handleChangePassword(event)
+    handleChangePassword = (event) =>
     {
         var newState = Object.assign({}, this.state);
         newState.password = event.target.value;
         this.setNewState(newState);
     }
 
-    handleLogin(event)
+    handleLogin = (event) =>
     {
         event.preventDefault();
         

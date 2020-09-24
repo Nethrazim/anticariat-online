@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {Router} from 'react-router-dom';
 
@@ -33,26 +32,26 @@ function mapStateToProps(state)
 }
 class Site extends React.Component
 {
-    componentDidMount()
+    constructor(props)
     {
+        super(props);
         this.checkUserIsLoggedIn();
+        this.followUrl();
     }
     
     followUrl = () => {
-        try
-        {
+        try {
             var uri = window.location.href.split("?")[1].split("=")[1];
-            if(uri)
-            {
+            if(uri) {
                 history.push(uri);
             }
-            
-        }catch(err){}
+        }catch(err) {
+
+        }
     }
 
     checkUserIsLoggedIn = () => {
         this.props.checkIsLoggedIn(this.props.token);
-        this.followUrl();
     }
 
 

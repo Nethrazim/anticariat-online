@@ -43,7 +43,7 @@ class BooksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_book
       @book = Book.includes(:price_reduction).find_by(id: params[:id])
-      render json: {status: "not ok", "message": "Book not found."}, status: :not_found unless @book
+      render json: {status: "not ok", message: "Book not found."}, status: :not_found unless @book
     end
 
     # Only allow a trusted parameter "white list" through.
