@@ -32,3 +32,14 @@
 {
     font-weight: bold;
 }
+
+.edit_account_page .user_info_header, .edit_account_page .address_info_header
+{
+    font-size:20px;
+    color: chocolate;
+}
+
+.edit_account_page .ao_breadcrumb
+{
+    padding-left: 15px;
+}

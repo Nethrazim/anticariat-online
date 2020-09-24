@@ -109,11 +109,10 @@ class Book extends React.Component
                 </div>
             </div>
             <div className="row">
-                <div>
+                <div className="ao_breadcrumb">
                     <Breadcrumbs aria-label="breadcrumb">
                         <Link to="/">Home</Link>
-                        <Link to="/#" onClick={this.handleGoBack.bind(this)}>Books</Link>
-                        <Link to={"/books/" + this.state.book.id}>{this.state.book.title}</Link>
+                        <Link to="/#" onClick={this.handleGoBack.bind(this)}>Back</Link>
                     </Breadcrumbs>
                 </div>
             </div>

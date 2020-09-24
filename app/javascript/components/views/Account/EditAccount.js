@@ -1,12 +1,14 @@
 import React from 'react';
-
-import './EditAccount.css';
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
-
+import {Breadcrumbs} from '@material-ui/core';
+import history from '../../../js/history/history';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {updateUserInfo} from '../../../js/actions/index';
+import {updateUserInfo, updateUserDeliveryInfo} from '../../../js/actions/index';
+
+import './EditAccount.css';
 
 function mapStateToProps(state)
 {
@@ -21,7 +23,10 @@ function mapDispatchToProps(dispatch)
 {
     return {
         updateUserInfo: (userInfo) => {
-            dispatch(updateUserInfo(userInfo))
+            dispatch(updateUserInfo(userInfo));
+        },
+        updateUserDeliveryInfo: (deliveryInfo) => {
+            dispatch(updateUserDeliveryInfo(deliveryInfo));
         }
     };
 }
@@ -112,6 +117,7 @@ class EditAccount extends React.Component
             .then(response => response.json())
             .then(function(data) {
                 _this.setState(Object.assign({}, _this.state, {isLoading: false}), () => {
+                    _this.props.updateUserDeliveryInfo(message);
                 });
             })
             .catch((error) => {
@@ -175,6 +181,11 @@ class EditAccount extends React.Component
         this.setState(Object.assign({}, this.state, {user: {...this.state.user, region_id: event.target.value}}));
     }
     
+    handleGoBack = (event) =>
+    {
+        event.preventDefault();
+        history.goBack();
+    }
 
     fetchCountries = () => {
         var _this = this;
@@ -214,8 +225,19 @@ class EditAccount extends React.Component
                 </div>
             </div>
             <div className="row">
+                <div className="ao_breadcrumb"> 
+                    <Breadcrumbs aria-label="breadcrumb">
+                        <Link to="/">Home</Link>
+                        <Link to="/#" onClick={this.handleGoBack.bind(this)}>Back</Link>
+                    </Breadcrumbs>
+                </div>
+            </div>
+            <div className="row">
                 <div className="col-md-6">
                     <ul className="user_list">
+                        <li>
+                            <p className="user_info_header">User information:</p>
+                        </li>
                         <li>
                             <label htmlFor="first_name">Prenume:</label><br/>
                             <input className="input_field" type="text" name="first_name" onChange={this.onChangeFirstName.bind(this)} value={this.state.user.first_name}/>
@@ -240,6 +262,9 @@ class EditAccount extends React.Component
                 </div>
                 <div className="col-md-6">
                     <ul className="address_list">
+                        <li>
+                            <p className="address_info_header">Delivery Address:</p>
+                        </li>
                         <li>
                             <label htmlFor="address">Adresa:</label><br/>
                             <input className="input_field" type="text" name="address" onChange={this.onChangeAddress.bind(this)} value={this.state.user.address}/>

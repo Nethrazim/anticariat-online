@@ -1,4 +1,4 @@
-import { UPDATE_USER_INFO, DELETE_CART_ALL, DELETE_FROM_CART, CREATE_ACCOUNT, CREATE_ACCOUNT_FAILED, LOGIN, LOGIN_FAILED, IS_LOGGED_IN, IS_NOT_LOGGED_IN, ADD_TO_CART, OPEN_CART, CLOSE_CART} from '../constants/action-types';
+import { UPDATE_USER_DELIVERY_INFO, UPDATE_USER_INFO, DELETE_CART_ALL, DELETE_FROM_CART, CREATE_ACCOUNT, CREATE_ACCOUNT_FAILED, LOGIN, LOGIN_FAILED, IS_LOGGED_IN, IS_NOT_LOGGED_IN, ADD_TO_CART, OPEN_CART, CLOSE_CART} from '../constants/action-types';
 
 const initialState = {
     accessToken: null,
@@ -135,6 +135,11 @@ const initialState = {
       newState.account.user.last_name = action.payload.last_name;
       newState.account.user.phone = action.payload.phone;
       newState.account.user.email = action.payload.email;
+    }
+
+    if(action.type === UPDATE_USER_DELIVERY_INFO)
+    {
+      newState.account.delivery_address = action.payload;
     }
 
     return newState;

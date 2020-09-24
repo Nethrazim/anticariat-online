@@ -2,6 +2,9 @@ import React from 'react';
 import BookItem from '../BookComponents/BookItem';
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Pagination from "@material-ui/lab/Pagination";
+import {Breadcrumbs} from '@material-ui/core';
+import {Link} from 'react-router-dom';
+import history from '../../../js/history/history';
 
 import './Author.css';
 
@@ -36,6 +39,12 @@ class Author extends React.Component
             .then(function(data){
                 _this.setState(Object.assign({}, _this.state, {isLoading: false, books: data.books, total: data.total}));
             });
+    }
+    
+    handleGoBack = (event) =>
+    {
+        event.preventDefault();
+        history.goBack();
     }
 
     handlePageChange = (event, value) => 
@@ -93,6 +102,14 @@ class Author extends React.Component
     {
         this.createGrid.bind(this);
         return(<div className="container author_page">
+             <div className="row">
+                <div className="ao_breadcrumb"> 
+                    <Breadcrumbs aria-label="breadcrumb">
+                        <Link to="/">Home</Link>
+                        <Link to="/#" onClick={this.handleGoBack.bind(this)}>Back</Link>
+                    </Breadcrumbs>
+                </div>
+            </div>
             <div className="row">
                 <div className="col-md-12">
                     <span className="header">Carti ale autorului {this.state.searchValue}:</span>
