@@ -24,7 +24,7 @@ class ViewPort extends Component
                 <div className="view_port">
                         <Switch>
                             <Route path="/search_results" component={SearchResults}/>
-                            <Route path="/books/:id" component={(routeProps) => <Book {...routeProps}/>}/>
+                            <Route path="/view_books/:id" component={(routeProps) => <Book {...routeProps}/>}/>
                             <Route path="/contact" render={(routeProps) => <Contact {...routeProps}/>} />
                             <Route path="/cumparam" render={(routeProps) => <BuyAdv {...routeProps}/>} />
                             <Route path="/literatura" component={(routeProps) => <DisplayBooks {...routeProps} category="literatura"/>} />

@@ -41,12 +41,6 @@ class Author extends React.Component
             });
     }
     
-    handleGoBack = (event) =>
-    {
-        event.preventDefault();
-        history.goBack();
-    }
-
     handlePageChange = (event, value) => 
     {
         this.setState(Object.assign({}, this.state, {page:value}), () => {
@@ -106,7 +100,6 @@ class Author extends React.Component
                 <div className="ao_breadcrumb"> 
                     <Breadcrumbs aria-label="breadcrumb">
                         <Link to="/">Home</Link>
-                        <Link to="/#" onClick={this.handleGoBack.bind(this)}>Back</Link>
                     </Breadcrumbs>
                 </div>
             </div>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {Router} from 'react-router-dom';
 
@@ -37,8 +38,21 @@ class Site extends React.Component
         this.checkUserIsLoggedIn();
     }
     
+    followUrl = () => {
+        try
+        {
+            var uri = window.location.href.split("?")[1].split("=")[1];
+            if(uri)
+            {
+                history.push(uri);
+            }
+            
+        }catch(err){}
+    }
+
     checkUserIsLoggedIn = () => {
         this.props.checkIsLoggedIn(this.props.token);
+        this.followUrl();
     }
 
 

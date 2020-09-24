@@ -353,7 +353,7 @@ class Checkout extends React.Component
                             this.props.items.map((item, i) => {
                                 return <tr key={i}>
                                     <td>
-                                        <Link to={"/books/" + item.id}>
+                                        <Link to={"/view_books/" + item.id}>
                                         <img width="50" height="70" src={item.base64} alt="book"/>
                                         <ul className="book_details">
                                             <li>

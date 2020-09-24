@@ -38,12 +38,6 @@ class Book extends React.Component
         this.setState(Object.assign({}, this.state, {isAddedToCart: true}));
     }
 
-    handleGoBack = (event) =>
-    {
-        event.preventDefault();
-        this.props.history.goBack();
-    }
-
     fetchBookData = () =>
     {
         var _this = this;
@@ -112,7 +106,6 @@ class Book extends React.Component
                 <div className="ao_breadcrumb">
                     <Breadcrumbs aria-label="breadcrumb">
                         <Link to="/">Home</Link>
-                        <Link to="/#" onClick={this.handleGoBack.bind(this)}>Back</Link>
                     </Breadcrumbs>
                 </div>
             </div>

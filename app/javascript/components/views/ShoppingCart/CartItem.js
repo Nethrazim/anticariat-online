@@ -38,12 +38,12 @@ class CartItem extends React.Component
                 </div>
                 <div className="d-flex">
                         <div>
-                            <Link to={"/books/"+this.props.book.id} onClick={this.closeCart.bind(this)}>
+                            <Link to={"/view_books/"+this.props.book.id} onClick={this.closeCart.bind(this)}>
                                 <img width="50" src={this.props.book.base64} alt="cart item"/>
                             </Link>
                         </div>
                         <div className="item_col">
-                            <Link to={"/books/"+this.props.book.id} onClick={this.closeCart.bind(this)}>
+                            <Link to={"/view_books/"+this.props.book.id} onClick={this.closeCart.bind(this)}>
                                 <span className="item">{this.props.book.title}</span>
                             </Link>
                         </div>

@@ -13,13 +13,13 @@ class BookItem extends React.Component
                     {this.props.book.price_reduction && <div className="reduction_box"><span>-{this.props.book.price_reduction.percent_reduction}%</span></div>}
                     <ul className="book_item_details_list">
                         <li>
-                            <Link to={"/books/" + this.props.book.id}>
+                            <Link to={"/view_books/" + this.props.book.id}>
                                 <img src={this.props.book.base64} alt=""/>
                             </Link>
                         </li>
                         <li>
                             <div className="container-fluid d-flex justfiy-content-center">
-                                <Link to={"/books/" + this.props.book.id}>
+                                <Link to={"/view_books/" + this.props.book.id}>
                                     <span className="title">{this.props.book.title}</span>
                                 </Link>
                             </div>

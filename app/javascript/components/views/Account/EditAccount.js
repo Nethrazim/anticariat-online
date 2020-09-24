@@ -181,12 +181,6 @@ class EditAccount extends React.Component
         this.setState(Object.assign({}, this.state, {user: {...this.state.user, region_id: event.target.value}}));
     }
     
-    handleGoBack = (event) =>
-    {
-        event.preventDefault();
-        history.goBack();
-    }
-
     fetchCountries = () => {
         var _this = this;
         this.setState(Object.assign({}, this.state, {isLoading: true}));
@@ -228,7 +222,6 @@ class EditAccount extends React.Component
                 <div className="ao_breadcrumb"> 
                     <Breadcrumbs aria-label="breadcrumb">
                         <Link to="/">Home</Link>
-                        <Link to="/#" onClick={this.handleGoBack.bind(this)}>Back</Link>
                     </Breadcrumbs>
                 </div>
             </div>
