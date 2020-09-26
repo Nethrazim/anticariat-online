@@ -1,3 +1,12 @@
+.account_btn_box
+{
+    border-radius: 50%;
+    background:#73ACA5;
+    width: 55px;
+    height: 55px;
+    position:relative;
+    left:30px;
+}
 
 .account_btn_box ul
 {
@@ -18,7 +27,13 @@
 
 .account_btn_box .logged_in_username
 {
-    color: brown;
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    left: -6px;
+    top: -10px;
+    color: white;
+    font-weight: bold;
 }
 
 .account_btn_box .welcome_username

@@ -13,9 +13,9 @@ class TopSearchBox extends React.Component
             <div className="row d-flex justify-content-center">
                 <Logo/>
                 <SearchBoxInput/>
-                <AccountBtnBox/>
                 <ContactBtnBox/>
                 <CartBtnBox/>
+                <AccountBtnBox/>
             </div>
         );
     }

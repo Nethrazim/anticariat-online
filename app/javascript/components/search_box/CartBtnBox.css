@@ -1,11 +1,32 @@
+.cart_btn_box
+{
+    border-radius: 50%;
+    background: #73ACA5;
+    width: 55px;
+    height: 55px;
+    position:relative;
+    left:20px;
+}
+
 .cart_btn_box ul
 {
     list-style: none;
-    padding-left: 20px;
+    padding-left: 18px;
     padding-top: 10px;
 }
 
 .cart_btn_box ul span
 {
     font-size: 12px;
+}
+
+
+.cart_btn_box .cart_link
+{
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    top: -7px;
+    color: white;
+    font-weight: bold;
 }

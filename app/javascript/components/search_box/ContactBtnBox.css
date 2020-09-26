@@ -1,3 +1,24 @@
+.contact_btn_box
+{
+    border-radius: 50%;
+    background: #73ACA5;
+    width: 55px;
+    height: 55px;
+    position:relative;
+    left:10px;
+}
+
+.contact_btn_box .contact_link
+{
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    left: -13px;
+    top: -10px;
+    color: white;
+    font-weight: bold;
+}
+
 .contact_btn_box ul
 {
     list-style: none;
