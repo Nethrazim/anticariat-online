@@ -43,11 +43,11 @@ class Search::SearchBooksController < ApplicationController
             price_to  = params[:price_to].to_i if params[:price_to].present?
             year_from = params[:year_from].to_i if params[:year_from].present?
             year_to = params[:year_to].to_i if params[:year_to].present?
-
+            
             book_category = BookCategory.find_by!(name: category)
-            books = Book.includes(:price_reduction).where(book_category_id: book_category.id)
+            books = Book.includes(:price_reduction).left_outer_joins(:price_reduction).where(book_category_id: book_category.id)
             books = books.where('title LIKE ? or author LIKE ?', "%#{name}%", "%#{name}%") if name
-            books = books.where(price: (price_from..price_to)) if price_from && price_to
+            books = books.where('price between ? and ? or (price - ((percent_reduction * price) / 100)) between ? and ?',price_from, price_to, price_from, price_to) if price_from && price_to
             books = books.where(release_year: (year_from..year_to)) if (year_from && year_to)
             books = books.limit(per_page).offset(per_page * (page - 1))
             total = Book.where(book_category_id: book_category.id).count
@@ -55,8 +55,10 @@ class Search::SearchBooksController < ApplicationController
             render :json => {total: total, books: books}, :include => :price_reduction,:except => [:created_at, :updated_at]
         rescue ActiveRecord::RecordNotFound => ex
             render json: {total: 0, books: []}, status: 200
+            print ex.message
         rescue => exception
             render json: {total: 0, books: []}, status: 500
+            print exception.message
         end
     end
 
