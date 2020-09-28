@@ -1,4 +1,4 @@
-import { UPDATE_USER_DELIVERY_INFO, UPDATE_USER_INFO, DELETE_CART_ALL, DELETE_FROM_CART, CREATE_ACCOUNT, CREATE_ACCOUNT_FAILED, LOGIN, LOGIN_FAILED, IS_LOGGED_IN, IS_NOT_LOGGED_IN, ADD_TO_CART, OPEN_CART, CLOSE_CART} from '../constants/action-types';
+import { LOGOUT, UPDATE_USER_DELIVERY_INFO, UPDATE_USER_INFO, DELETE_CART_ALL, DELETE_FROM_CART, CREATE_ACCOUNT, CREATE_ACCOUNT_FAILED, LOGIN, LOGIN_FAILED, IS_LOGGED_IN, IS_NOT_LOGGED_IN, ADD_TO_CART, OPEN_CART, CLOSE_CART} from '../constants/action-types';
 
 const initialState = {
     accessToken: null,
@@ -64,11 +64,28 @@ const initialState = {
       newState.account.user.last_name = action.payload.user.last_name;
       newState.account.user.phone = action.payload.user.phone;
       newState.account.user.email = action.payload.user.email;
-      console.log(action.payload);
+      
       if(action.payload.user.delivery_address)
       {
         newState.account.delivery_address = action.payload.user.delivery_address;
       }
+    }
+
+    if(action.type === LOGOUT)
+    {
+      newState.accessToken = null;
+      newState.account.isLoggedIn = false;
+      newState.account.user.id = null;
+      newState.account.user.username = null;
+      newState.account.user.first_name = '';
+      newState.account.user.last_name = '';
+      newState.account.user.phone = '';
+      newState.account.user.email = '';
+
+      newState.account.delivery_address.address = '';
+      newState.account.delivery_address.city = '';
+      newState.account.delivery_address.country_id = null;
+      newState.account.delivery_address.region_id = null;
     }
 
     if(action.type === LOGIN_FAILED)

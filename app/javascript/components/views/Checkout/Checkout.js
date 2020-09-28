@@ -13,7 +13,9 @@ import './Checkout.css'
 function mapStateToProps(state)
 {
     return {
-        items: state.shoppingCart.items
+        items: state.shoppingCart.items,
+        delivery_address: state.account.delivery_address,
+        user: state.account.user
     }
 }
 
@@ -31,22 +33,26 @@ function mapDispatchToProps(dispatch)
 
 class Checkout extends React.Component
 {
-    state = {
-        personInfo: {
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: ''
-        },
-        deliveryInfo: {
-            address:'',
-            country:null,
-            region:null,
-            city:''
-        },
-        countries_regions:[],
-        selected_country:{regions:[]},
-        registered_order: null
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            personInfo: {
+                firstName: this.props.user.first_name,
+                lastName: this.props.user.last_name,
+                email: this.props.user.email,
+                phone: this.props.user.phone
+            },
+            deliveryInfo: {
+                address:this.props.delivery_address.address,
+                country:this.props.delivery_address.country_id,
+                region:this.props.delivery_address.region_id,
+                city: this.props.delivery_address.city
+            },
+            countries_regions:[],
+            selected_country:{regions:[]},
+            registered_order: null
+        }
     }
 
     validator = new SimpleReactValidator();
@@ -114,8 +120,21 @@ class Checkout extends React.Component
             .then(response => response.json())
             .then(function(data) {
                 var newState = Object.assign({}, _this.state);
-                newState.countries_regions = data
+                newState.countries_regions = data;
                 newState.selected_country = data[0];
+                
+                if(_this.state.deliveryInfo.country)
+                {
+                    for(var i =0; i < data.length; i ++)
+                    {
+                        var country = data[i];
+                        if(country.id === _this.state.deliveryInfo.country)
+                        {
+                            newState.selected_country = country;
+                            break;
+                        }
+                    }
+                }
                 _this.setState(newState);
             })
     }
@@ -421,7 +440,7 @@ class Checkout extends React.Component
                     </li>
                     <li>
                         <span className="red">*</span>Tara:<br/>
-                        <select className="factInput" onChange={this.handleCountryChange.bind(this)}>
+                        <select className="factInput" onChange={this.handleCountryChange.bind(this)} value={this.state.deliveryInfo.country}>
                             {
                                 this.state.countries_regions.map((item, i) => {
                                     return <option key={i} value={item.id}>{item.name}</option>
@@ -431,7 +450,7 @@ class Checkout extends React.Component
                     </li>
                     <li>
                         <span className="red">*</span>Regiune / Judet:<br/>
-                        <select className="factInput" onChange={this.handleRegionChange.bind(this)}>
+                        <select className="factInput" onChange={this.handleRegionChange.bind(this)} value={this.state.deliveryInfo.region}>
                             {
                                 this.state.selected_country.regions.map((item,i) => {
                                     return <option key={i} value={item.id}>{item.name}</option>

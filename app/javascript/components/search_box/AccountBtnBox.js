@@ -5,12 +5,20 @@ import MenuItem from '@material-ui/core/MenuItem';
 import './AccountBtnBox.css'
 import {connect} from 'react-redux';
 import history from '../../js/history/history';
+import {logout} from '../../js/actions/index';
 
 const mapStateToProps = function(state)
 {
     return {
         isLoggedIn: state.account.isLoggedIn,
         username: state.account.user.username
+    }
+}
+
+const mapDispatchToProps = function(dispatch)
+{
+    return {
+        logoutUser: () => dispatch(logout())
     }
 }
 
@@ -45,13 +53,20 @@ class AccountBtnBox extends React.Component
         }); 
     }
 
+    handleLogout = () => {
+        this.setState(Object.assign({}, this.state, {isMenuOpen: false, anchorEl: null}), () => {
+            this.props.logoutUser();
+            history.push("/");
+        });
+    }
+
     render() {
         return(
         <div className="account_btn_box">
             <ul onClick={this.openMenu.bind(this)} aria-controls="account_menu">
                 <li>
-                <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="white" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                <svg width="1.3em" height="1.3em" viewBox="0 0 16 16" className="bi bi-person-fill" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                 </svg>
                 </li>
                 <li>
@@ -74,6 +89,11 @@ class AccountBtnBox extends React.Component
                                     <span>Editeaza Cont</span>
                                 </div>
                             </MenuItem>
+                            <MenuItem onClick={this.handleLogout.bind(this)}>
+                                <div>
+                                    <span>Logout</span>
+                                </div>
+                            </MenuItem>
                         </div>
                         :
                         <div>
@@ -93,4 +113,4 @@ class AccountBtnBox extends React.Component
     }
 }
 
-export default connect(mapStateToProps, null)(AccountBtnBox);
+export default connect(mapStateToProps, mapDispatchToProps)(AccountBtnBox);
