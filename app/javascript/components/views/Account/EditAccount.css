@@ -18,6 +18,16 @@
     outline: none;
 }
 
+.edit_account_page .input_field_username
+{
+    width: 300px;
+    height: 35px;
+    border: solid 1px chocolate;
+    background-color: coral;
+    outline: none;
+    color: white;
+}
+
 .edit_account_page .btn_save_user, .edit_account_page .btn_save_address
 {
     background-color: red;

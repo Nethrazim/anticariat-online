@@ -39,6 +39,7 @@ class EditAccount extends React.Component
         countries_regions: [],
         selected_country: {regions:[]},
         user : {
+            username: this.props.user.username,
             first_name: this.props.user.first_name,
             last_name: this.props.user.last_name,
             phone: this.props.user.phone,
@@ -230,6 +231,10 @@ class EditAccount extends React.Component
                     <ul className="user_list">
                         <li>
                             <p className="user_info_header">User information:</p>
+                        </li>
+                        <li>
+                            <label htmlFor="first_name">Username:</label><br/>
+                            <input className="input_field_username" type="text" name="username" value={this.state.user.username} readOnly/>
                         </li>
                         <li>
                             <label htmlFor="first_name">Prenume:</label><br/>

@@ -2,6 +2,7 @@ import React from 'react';
 import SimpleReactValidator from 'simple-react-validator';
 import {connect} from 'react-redux';
 import {login} from '../../../js/actions/index';
+import history from '../../../js/history/history';
 
 import './LoginBox.css';
 
@@ -29,7 +30,7 @@ class LoginBox extends React.Component
     {
         if(this.props.isLoggedIn)
         {  
-            this.props.history.push("/literatura");
+            history.push("/literatura");
         }
     }
 

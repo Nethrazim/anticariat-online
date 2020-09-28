@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router} from 'react-router-dom';
+import {BrowserRouter, Router} from 'react-router-dom';
 
 import '../components/Site.css';
 
@@ -53,7 +53,6 @@ class Site extends React.Component
     checkUserIsLoggedIn = () => {
         this.props.checkIsLoggedIn(this.props.token);
     }
-
 
     render() {
         return (    
