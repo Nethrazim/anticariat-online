@@ -46,7 +46,7 @@
 
 .filter_price .price
 {
-    width: 38px;
+    width: 75px;
     height: 28px;
     text-align: center;
     font-size: 11px;
@@ -54,7 +54,7 @@
 
 .filter_years .years
 {
-    width: 38px;
+    width: 75px;
     height: 28px;
     text-align: center;
     font-size: 11px;
