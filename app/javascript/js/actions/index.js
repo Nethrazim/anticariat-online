@@ -3,43 +3,17 @@ import {host_url} from "../constants/api-urls";
 
 export function createAccount(payload)
 {
-    return function(dispatch) {
-        var message = {
-            username: payload.username,
-            email: payload.email,
-            password: payload.password
-        };
-        const csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
-        var request_options = {
-            method: 'POST',
-            body: JSON.stringify(message),
-            cache: 'no-cache',
-            headers: {
-                'Content-Type':'application/json',
-                'X-CSRF-token': csrf
-            }
-        };
-
-        return fetch("/users", request_options)
-        .then(response => {
-            return  response.json();
-        })
-        .then(json => {
-            if (json.errors)
-            {
-                dispatch({type: CREATE_ACCOUNT_FAILED, payload: json});
-            }
-            else 
-            {
-                dispatch({ type: CREATE_ACCOUNT, payload: json});
-            }
-           
-        })
-        .catch((error) => {
-            dispatch({ type: SERVER_ERROR, payload: error })
-            console.error('Error:', error);
-        })
+    if(payload.errors)
+    {
+        return {type: CREATE_ACCOUNT_FAILED, payload};    
     }
+
+    return {type: CREATE_ACCOUNT, payload};
+}
+
+export function serverError(payload)
+{
+    return {type: SERVER_ERROR, payload};
 }
 
 export function checkIsLoggedIn(token)

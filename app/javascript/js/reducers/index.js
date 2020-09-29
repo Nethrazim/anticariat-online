@@ -22,7 +22,7 @@ const initialState = {
       isLoggedIn: false,
       loginErrors: [],
       newAccountCreated: false,
-      newAccountCreatedErrors:[]
+      newAccountCreatedErrors:null
     },
     shoppingCart: {
       isOpen: false,
