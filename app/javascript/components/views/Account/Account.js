@@ -4,6 +4,7 @@ import { createAccount, serverError } from '../../../js/actions/index'
 import SimpleReactValidator from 'simple-react-validator';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 import './Account.css';
 
@@ -41,7 +42,8 @@ class CreateAccount extends React.Component
             password: '',
             confirm_password:'',
             newAccountCreatedErrors: this.props.newAccountCreatedErrors,
-            isSnackbarOpened: false
+            isSnackbarOpened: false,
+            isLoading: false
         };
     
     }
@@ -84,12 +86,12 @@ class CreateAccount extends React.Component
     handleCreateAccount = (event) =>
     {
         event.preventDefault();
-        this.setState(Object.assign({}, this.state, {newAccountCreatedErrors: []}));
-
+        
         if(!this.validator.allValid()) {
             this.validator.showMessages();
             this.forceUpdate();
         } else {
+            this.setState(Object.assign({}, this.state, {newAccountCreatedErrors: [], isLoading: true}));
             this.createAccount(this.state);
         }
     }
@@ -121,7 +123,8 @@ class CreateAccount extends React.Component
         .then(json => {
             _this.props.createAccount(json);
             var newState = Object.assign({}, _this.state);
-            newState.isSnackbarOpened = true;            
+            newState.isSnackbarOpened = true;           
+            newState.isLoading = false; 
             if(json.errors)
             {
                 newState.newAccountCreatedErrors = json.errors;    
@@ -145,8 +148,18 @@ class CreateAccount extends React.Component
     render()
     {
         return(
-            <div className="container d-flex justify-content-center">
-                <div className="create_account_box">
+            <div className="container create_account_page col_width">
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="col_width d-flex justify-content-center">
+                        {
+                             this.state.isLoading === true && <LinearProgress/>
+                        }
+                        </div>
+                    </div>
+                </div>
+                <div className="row create_account_box">
+                    <div className="d-flex justify-content-center col_width">
                     <form>
                         <table>
                             <tbody>
@@ -207,6 +220,7 @@ class CreateAccount extends React.Component
                             </tbody>
                         </table>
                     </form>
+                    </div>
                 </div>
                 <Snackbar open={this.state.isSnackbarOpened} onClose={this.onSnackbarClose.bind(this)}>
                     <Alert severity={this.state.newAccountCreatedErrors != null ? 'error' : 'success'}>

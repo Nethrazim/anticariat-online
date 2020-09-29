@@ -38,3 +38,8 @@
     list-style:none;
     padding-left: 0px;
 }
+
+.create_account_page .col_width 
+{
+    width: 1000px;
+}
