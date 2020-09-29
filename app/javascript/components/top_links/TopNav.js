@@ -13,8 +13,6 @@ class TopNav extends React.Component
                     <li><TopLink link_text="Cumparam" link="cumparam"/></li>
                     <li><TopLink link_text="Noutati" link="noutati"/></li>
                     <li><TopLink link_text="Reduceri" link="reduceri"/></li>
-                    <li><TopLink link_text="Sub 3 lei" link="sub3lei"/></li>
-                    <li><TopLink link_text="Sub 5 lei" link="sub5lei"/></li>
                 </ul>
             </div>
         )

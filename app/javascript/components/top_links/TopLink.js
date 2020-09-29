@@ -8,16 +8,19 @@ class TopLink extends React.Component
     constructor(props)
     {
         super(props);
-        this.link_text = props.link_text;
-        this.link = props.link;
+
+        this.state = {
+            link_text: this.props.link_text,
+            link: this.props.link
+        };
     }
 
     render()
     {
         return(
             <div className="top_link_box">
-                <Link to={"/" + this.link}>
-                    <span className="link_color">{this.link_text}</span>
+                <Link to={"/" + this.state.link}>
+                    <span className="link_color">{this.state.link_text}</span>
                 </Link>
             </div>
         );

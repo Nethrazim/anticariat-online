@@ -62,6 +62,40 @@ class Search::SearchBooksController < ApplicationController
         end
     end
 
+    def by_price_reduction
+        begin
+            per_page = params[:per_page].to_i
+            page = params[:page].to_i
+            
+            author = params[:author] if params[:author].present? 
+            title = params[:title] if params[:title].present?
+
+            price_from = params[:price_from].to_i if params[:price_from].present?
+            price_to  = params[:price_to].to_i if params[:price_to].present?
+
+            
+            books = Book.includes(:price_reduction).joins(:price_reduction)
+            books = books.where('title LIKE ?', "%#{title}%") if title
+            books = books.where('author LIKE ?', "%#{author}%") if author
+            books = books.where('price between ? and ? or (price - ((percent_reduction * price) / 100)) between ? and ?',price_from, price_to, price_from, price_to) if price_from && price_to
+            books = books.limit(per_page).offset(per_page * (page - 1))
+            
+            
+            total = Book.joins(:price_reduction).where('true = ?', true)
+            total = total.where('title LIKE ? or author LIKE ?', "%#{title}%", "%#{author}%") if author && title
+            total = total.where('price between ? and ? or (price - ((percent_reduction * price) / 100)) between ? and ?',price_from, price_to, price_from, price_to) if price_from && price_to
+            total = total.count
+            
+            render :json => {total: total, books: books}, :include => :price_reduction,:except => [:created_at, :updated_at]
+        rescue ActiveRecord::RecordNotFound => ex
+            render json: {total: 0, books: []}, status: 200
+            print ex.message
+        rescue => exception
+            render json: {total: 0, books: []}, status: 500
+            print exception.message
+        end
+    end
+
     def by_latest
         begin
             latest = params[:latest]

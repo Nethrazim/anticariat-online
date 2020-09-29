@@ -165,8 +165,8 @@ class DisplayBooks extends React.Component
                 </div>
                 </div>
                 <Breadcrumbs aria-label="breadcrumb">
-                    <Link  to="/">Home</Link>
-                    <Link  to={this.props.match.path}>{this.props.category}</Link>
+                    <Link  to="/">HOME</Link>
+                    <Link  to={this.props.match.path}>{this.props.category.toUpperCase()}</Link>
                 </Breadcrumbs>
                 <Filters setFilterName={this.setFilterName} setFilterPriceFrom={this.setFilterPriceFrom} 
                     setFilterPriceTo={this.setFilterPriceTo} setFilterYearFrom={this.setFilterYearFrom} setFilterYearTo={this.setFilterYearTo}

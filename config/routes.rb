@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     get "/new_books", to: "search_books#by_latest"
     get "/recommendations", to:"search_books#by_recommendations"
     get "/author", to: "search_books#by_author"
+    get "/price_reductions", to:"search_books#by_price_reduction"
   end
 
   namespace 'subscription' do

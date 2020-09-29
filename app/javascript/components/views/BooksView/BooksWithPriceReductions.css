@@ -1,0 +1,57 @@
+.books_with_price_reductions_page .search_btn_wrapper
+{
+    padding-top: 20px;
+}
+
+.books_with_price_reductions_page .search_btn
+{
+    border:0px;
+    background-color: red;
+    height: 40px;
+    color:white;
+    float: right;
+}
+
+.books_with_price_reductions_page .filter_row
+{
+    border-bottom: solid 1px seagreen;
+    padding-bottom: 15px;
+}
+
+.books_with_price_reductions_page .price
+{
+    padding-right: 20px;
+}
+
+.books_with_price_reductions_page .filters .filter_price .price_input
+{
+    width: 50px;
+    border: 0px;
+    border-bottom: solid 1px black;
+}
+
+.books_with_price_reductions_page .filters .filter_price span, .books_with_price_reductions_page .filters .filter_price input 
+{
+    padding-right: 10px;
+}
+
+
+.books_with_price_reductions_page .filters .filter_price .filter_spacing
+{
+    padding-left: 10px;
+}
+
+.books_with_price_reductions_page .filter_price_slider
+{
+    width: 300px;
+}
+
+.books_with_price_reductions_page .filter_author
+{
+    padding-top: 15px;
+}
+
+.books_with_price_reductions_page .filter_pagination
+{
+    float: right;
+}
