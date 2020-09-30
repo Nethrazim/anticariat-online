@@ -1,15 +1,18 @@
 class Search::SearchBooksController < ApplicationController
     skip_before_action :require_login
 
-
     def by_recommendations
-        book_id = params[:book_id]
-        book_category_id = params[:book_category_id]
-        author = params[:author]
-        limit = params[:limit]
-        recommended_books = Book.includes(:price_reduction).where("(author = ? or book_category_id = ?) and id <> ?", author, book_category_id, book_id).order("RAND() ").limit(limit)
+        begin
+            book_id = params[:book_id]
+            book_category_id = params[:book_category_id]
+            author = params[:author]
+            limit = params[:limit]
+            recommended_books = Book.includes(:price_reduction).where("(author = ? or book_category_id = ?) and id <> ?", author, book_category_id, book_id).order("RAND() ").limit(limit)
         
-        render json: recommended_books, include: :price_reduction, except: [:created_at, :updated_at]
+            render json: recommended_books, include: :price_reduction, except: [:created_at, :updated_at]    
+        rescue => exception
+            render json: {errors:[exception.message]}, status: 500 
+        end
     end
     
     def by_name
@@ -23,7 +26,6 @@ class Search::SearchBooksController < ApplicationController
 
             render :json => {books: books, total: total}, :include => :price_reduction, :except => [:created_at, :updated_at]                     
         rescue => exception
-            binding.pry
             render json: {total: 0, books: []}, status: 500
         end
 

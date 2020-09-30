@@ -61,11 +61,11 @@ class Site extends React.Component
                 <Router history={history}>
                 <main>
                 <div className="top_layout_box">
+                    <hr className="top_horizontal_line"/>
                     <div className="container-fluid">
                         <TopNav/>
                         <TopSearchBox/>
                     </div> 
-                    
                     <div className="container-fluid category_link_wrapper">
                         <div className="row d-flex justify-content-center">
                             <CategoryLink link_text="LITERATURA" link="literatura"/>
