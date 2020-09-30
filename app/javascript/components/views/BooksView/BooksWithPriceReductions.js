@@ -38,6 +38,29 @@ class BooksWithPriceReductions extends React.Component
             this.fetchBooks()
         })
     }
+
+    handlePriceFrom = (event) => 
+    {
+        if(parseInt(event.target.value))
+        {
+            var newPrice = this.state.filter.price;
+            newPrice[0] = event.target.value;
+    
+            this.setState(Object.assign({}, this.state, {filter: {...this.state.filter, price: newPrice}}));    
+        }
+    }
+
+    handlePriceTo = (event) => 
+    {
+        if(parseInt(event.target.value))
+        {
+            var newPrice = this.state.filter.price;
+            newPrice[1] = event.target.value;
+
+            this.setState(Object.assign({}, this.state, {filter: {...this.state.filter, price: newPrice}}));    
+        }
+    }
+
     createBookItem = (idx, book) =>
     {
         return(<td key={idx}><BookItem book={book}/></td>);   
@@ -141,8 +164,8 @@ class BooksWithPriceReductions extends React.Component
                                     />
                                 </div>
                                 <div className="filter_price">
-                                    <span>De la:</span><input className="price_input price_from" type="text" value={this.state.filter.price[0]} />
-                                    <span className="filter_spacing">pana la :</span><input className="price_input price_to" type="text" value={this.state.filter.price[1]} />                                    
+                                    <span>De la:</span><input className="price_input price_from" type="text" value={this.state.filter.price[0]} onChange={this.handlePriceFrom.bind(this)}/>
+                                    <span className="filter_spacing">pana la :</span><input className="price_input price_to" type="text" value={this.state.filter.price[1]} onChange={this.handlePriceTo.bind(this)}/>                                    
                                     <span className="filter_spacing">RON</span>
                                 </div>
                                 <div className="search_btn_wrapper">

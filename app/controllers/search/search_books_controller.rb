@@ -80,9 +80,10 @@ class Search::SearchBooksController < ApplicationController
             books = books.where('price between ? and ? or (price - ((percent_reduction * price) / 100)) between ? and ?',price_from, price_to, price_from, price_to) if price_from && price_to
             books = books.limit(per_page).offset(per_page * (page - 1))
             
-            
             total = Book.joins(:price_reduction).where('true = ?', true)
-            total = total.where('title LIKE ? or author LIKE ?', "%#{title}%", "%#{author}%") if author && title
+            total = total.where('title LIKE ?', "%#{title}%") if title
+            total = total.where('author LIKE ?', "%#{author}%") if author
+                
             total = total.where('price between ? and ? or (price - ((percent_reduction * price) / 100)) between ? and ?',price_from, price_to, price_from, price_to) if price_from && price_to
             total = total.count
             
