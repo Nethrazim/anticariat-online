@@ -17,7 +17,6 @@ class CategoryLink extends React.Component
         return(
             <div className="category_link">
                 <Link to={"/" + this.link}>
-                    
                     <span className="link_color">{this.link_text}</span>
                 </Link>
             </div>

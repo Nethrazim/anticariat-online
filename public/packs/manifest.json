@@ -1,36 +1,36 @@
 {
-  "Index.js": "/packs/js/Index-0df729794595a0027105.js",
-  "Index.js.map": "/packs/js/Index-0df729794595a0027105.js.map",
-  "application.js": "/packs/js/application-9afcbb5693aa87623e69.js",
-  "application.js.map": "/packs/js/application-9afcbb5693aa87623e69.js.map",
+  "Index.js": "/packs/js/Index-9d9552f5f63f2b9b1109.js",
+  "Index.js.map": "/packs/js/Index-9d9552f5f63f2b9b1109.js.map",
+  "application.js": "/packs/js/application-1d78246812e6c4ab44d1.js",
+  "application.js.map": "/packs/js/application-1d78246812e6c4ab44d1.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-9afcbb5693aa87623e69.js"
+        "/packs/js/application-1d78246812e6c4ab44d1.js"
       ],
       "js.map": [
-        "/packs/js/application-9afcbb5693aa87623e69.js.map"
+        "/packs/js/application-1d78246812e6c4ab44d1.js.map"
       ]
     },
     "hello_react": {
       "js": [
-        "/packs/js/hello_react-1b1e8ab45e50e6ec8f77.js"
+        "/packs/js/hello_react-cef98a83448ac665e374.js"
       ],
       "js.map": [
-        "/packs/js/hello_react-1b1e8ab45e50e6ec8f77.js.map"
+        "/packs/js/hello_react-cef98a83448ac665e374.js.map"
       ]
     },
     "Index": {
       "js": [
-        "/packs/js/Index-0df729794595a0027105.js"
+        "/packs/js/Index-9d9552f5f63f2b9b1109.js"
       ],
       "js.map": [
-        "/packs/js/Index-0df729794595a0027105.js.map"
+        "/packs/js/Index-9d9552f5f63f2b9b1109.js.map"
       ]
     }
   },
-  "hello_react.js": "/packs/js/hello_react-1b1e8ab45e50e6ec8f77.js",
-  "hello_react.js.map": "/packs/js/hello_react-1b1e8ab45e50e6ec8f77.js.map",
+  "hello_react.js": "/packs/js/hello_react-cef98a83448ac665e374.js",
+  "hello_react.js.map": "/packs/js/hello_react-cef98a83448ac665e374.js.map",
   "media/images/background.jpg": "/packs/media/images/background-95c53b3b.jpg",
   "media/images/carriage-logo.png": "/packs/media/images/carriage-logo-4f98070d.png",
   "media/images/carti_1.jpg": "/packs/media/images/carti_1-04159cb6.jpg",
